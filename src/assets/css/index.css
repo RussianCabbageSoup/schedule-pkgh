@@ -1,4 +1,5 @@
 @import url(schedule.css);
+@import url(footer.css);
 
 @font-face {
     font-family: "MTSans";
@@ -27,4 +28,15 @@ body {
 
 .error {
     text-align: center;
+}
+
+.error div {
+    background-color: #a53ea0;
+    border-radius: 100px;
+    width: fit-content;
+    margin: 10px auto;
+    padding: 2px 7px;
+    color: #000;
+    font-size: 22px;
+    box-shadow: 0 0 12px 3px #91218b;
 }

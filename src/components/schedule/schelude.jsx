@@ -34,6 +34,12 @@ const Schedule = () => {
         return (
             <div className="error">
                 <p>Произошла ошибка: {error}</p>
+                <div
+                    onClick={() => window.location.reload()}
+                >
+                    Перезагрузить страницу
+                </div>
+                <p>Или</p>
                 <Link to="https://pkgh.ru/">Перейти на официальный сайт</Link>
             </div>
         )

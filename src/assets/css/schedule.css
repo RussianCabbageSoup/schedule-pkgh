@@ -3,6 +3,7 @@
     flex-direction: column;
     width: 100%;
     gap: 30px;
+    margin-bottom: 25px;
 }
 
 .card {
