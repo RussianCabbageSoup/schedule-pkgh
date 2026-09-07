@@ -2,11 +2,11 @@ import Footer from "../components/footer/footer"
 import Header from "../components/header/header"
 import Schedule from "../components/schedule/schelude"
 
-const Home = () => {
+const Home = ({ data }) => {
     return(
         <>
             <Header />
-            <Schedule />
+            <Schedule data={data} />
             <Footer />
         </>
     )
