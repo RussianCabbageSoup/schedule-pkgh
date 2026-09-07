@@ -9,7 +9,7 @@
     width: 100%;
     border-radius: 20px;
     padding: 12px;
-    box-shadow: 0 0 12px 3px #91218b;
+    box-shadow: 0 0 8px 2px #91218b;
 }
 
 .card__head {
@@ -50,6 +50,6 @@
     border-radius: 100px;
     width: 67%;
     height: 1px;
-    box-shadow: inset 0 0 2px 3px #a031af;
+    box-shadow: inset 0 0 2px 3px #a031af93;
     margin-bottom: 10px;
 }
