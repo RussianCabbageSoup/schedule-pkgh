@@ -9,7 +9,7 @@
     width: 100%;
     border-radius: 20px;
     padding: 12px;
-    box-shadow: 0 0 3px 3px #5f115b;
+    box-shadow: 0 0 12px 3px #91218b;
 }
 
 .card__head {
@@ -18,6 +18,7 @@
     justify-content: space-between;
     font-size: 20px;
     margin-bottom: 7px;
+    text-shadow: 0 0 3px #fff;
 }
 
 .card__lesson {
@@ -33,6 +34,11 @@
 .card__body-begin,
 .card__body-end {
     white-space: nowrap;
+}
+
+.card__body-class {
+    display: flex;
+    gap: 6px;
 }
 
 

@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import ScheludeCardItem from "./scheludeCardItem";
 
 const ScheduleCard = ({ data }) => {
     const convertDate = (date) => {
@@ -32,11 +34,7 @@ const ScheduleCard = ({ data }) => {
             <div className="separator"></div>
             <div className="card__body">
                 {data.map(item =>
-                    <div className="card__lesson" key={item.код}>
-                        <div className="card__body-begin">{item.начало} - </div>
-                        <div className="card__body-end">{item.конец}:</div>
-                        <div className="card__body-class">{item.аудитория} кабинет ({item.преподаватель})</div>
-                    </div>
+                    <ScheludeCardItem key={item.код} item={item} />
                 )}
             </div>
         </div>
