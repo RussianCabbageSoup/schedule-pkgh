@@ -5,7 +5,7 @@ import Schedule from "../components/schedule/schelude"
 const Home = ({ data }) => {
     return(
         <>
-            <Header />
+            <Header data={data} />
             <Schedule data={data} />
             <Footer />
         </>
