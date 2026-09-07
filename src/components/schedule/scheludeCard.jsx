@@ -12,20 +12,11 @@ const ScheduleCard = ({ data }) => {
         return `${day} ${mouths[mon]}`;
     }
 
-    const isTomorrow = () => {
-        const tomorrow = new Date();
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        return new Date(data[0].дата).toDateString() === tomorrow.toDateString();
-    }
-
     return (
         <div className="card">
             <div className="card__head">
                 <div className="card__head-date">
-                    {isTomorrow()
-                        ? <p>{convertDate(data[0].дата)} (Завтра)</p>
-                        : <p>{convertDate(data[0].дата)}</p>
-                    }
+                    <p>{convertDate(data[0].дата)}</p>
                 </div>
                 <div className="card__head-class">
                     {data[0].день_недели}
