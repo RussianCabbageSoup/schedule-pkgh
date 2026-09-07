@@ -12,8 +12,14 @@ const ScheduleCard = ({ data }) => {
         return `${day} ${mouths[mon]}`;
     }
 
+    const now = new Date();
+    const dayEnd = Math.max(...data.map(item =>
+        new Date(`${item.дата.slice(0, 10)}T${item.конец}`)
+    ));
+    const isPass = now > new Date(dayEnd);
+
     return (
-        <div className="card">
+        <div className={`card ${isPass ? 'pass-card' : ''}`}>
             <div className="card__head">
                 <div className="card__head-date">
                     <p>{convertDate(data[0].дата)}</p>
