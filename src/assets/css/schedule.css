@@ -1,0 +1,46 @@
+.slides {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+}
+
+.card {
+    width: 100%;
+    border-radius: 20px;
+    padding: 12px;
+    box-shadow: 0 0 3px 3px #5f115b;
+}
+
+.card__head {
+    display: flex;
+    white-space: nowrap;
+    justify-content: space-between;
+    font-size: 20px;
+    margin-bottom: 7px;
+}
+
+.card__lesson {
+    display: flex;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.card__body-end {
+    margin-right: 8px;
+}
+
+.card__body-begin,
+.card__body-end {
+    white-space: nowrap;
+}
+
+
+.separator {
+    margin: 0 auto;
+    border-radius: 100px;
+    width: 67%;
+    height: 1px;
+    box-shadow: inset 0 0 2px 3px #a031af;
+    margin-bottom: 10px;
+}
