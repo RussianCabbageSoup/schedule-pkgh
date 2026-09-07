@@ -1,8 +1,8 @@
 @import url(schedule.css);
 
 @font-face {
-    font-family: "Salwey";
-    src: url("../fonts/Salwey/Salwey.ttf") format("truetype");
+    font-family: "MTSans";
+    src: url("../fonts/MTSansFull/MTSans-RegularCondensed.ttf") format("truetype");
     font-display: swap;
 }
 
@@ -19,7 +19,7 @@ body {
     background: #000;
     color: #fff;
     padding: 20px;
-    font-family: "Salwey", sans-serif;
+    font-family: "MTSans", sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
