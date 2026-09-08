@@ -71,7 +71,7 @@
 }
 
 .current-day-card {
-    box-shadow: 0 0 15px 3px #91218b, 0 0 30px 5px #91218bd0;
+    box-shadow: 0 0 7px 1px #91218b, 0 0 12px 2px #91218bd0;
 }
 
 .current-day-separator {
@@ -87,11 +87,11 @@
 
 @keyframes lesson {
     0% {
-        box-shadow: 0 0 4px 2px rgb(107, 0, 0), 0 0 15px 3px rgba(107, 0, 0, 0.658);
+        box-shadow: 0 0 4px 2px rgb(107, 0, 0), 0 0 8px 3px rgba(107, 0, 0, 0.658);
     }
 
     100% {
-        box-shadow: 0 0 8px 3px rgb(107, 0, 0), 0 0 20px 5px rgba(107, 0, 0, 0.658);
+        box-shadow: 0 0 8px 3px rgb(107, 0, 0), 0 0 12px 5px rgba(107, 0, 0, 0.658);
     }
 }
 
