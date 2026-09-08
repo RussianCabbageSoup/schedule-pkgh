@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"
 const Footer = () => {
     return(
         <div className="footer">
-            <p>Используются данные с офицального сайта</p>
-            <Link to="https://pkgh.ru/">ПКГХ</Link>
+            <p>Используются данные с официального сайта</p>
+            <a href="https://pkgh.ru/">ПКГХ</a>
         </div>
     )
 }
