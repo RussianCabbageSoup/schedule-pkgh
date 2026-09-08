@@ -76,6 +76,7 @@
 
 .current-day-separator {
     box-shadow: inset 0 0 2px 1px #91218b, 0 0 3px 2px #91218bd0;
+    opacity: 0.8;
 }
 
 .lesson {
