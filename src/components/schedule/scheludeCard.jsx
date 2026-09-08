@@ -18,8 +18,10 @@ const ScheduleCard = ({ data }) => {
     ));
     const isPass = now > new Date(dayEnd);
 
+    const currentDay = new Date(data[0].дата) < now ? true : false
+
     return (
-        <div className={`card ${isPass ? 'pass-card' : ''}`}>
+        <div className={`card ${isPass ? 'pass-card' : ''} ${currentDay ? 'current-day-card' : ''}`}>
             <div className="card__head">
                 <div className="card__head-date">
                     <p>{convertDate(data[0].дата)}</p>
@@ -28,7 +30,7 @@ const ScheduleCard = ({ data }) => {
                     {data[0].день_недели}
                 </div>
             </div>
-            <div className="separator"></div>
+            <div className={`separator ${currentDay ? 'current-day-separator' : ''}`}></div>
             <div className="card__body">
                 {data.map(item =>
                     <ScheludeCardItem key={item.код} item={item} />

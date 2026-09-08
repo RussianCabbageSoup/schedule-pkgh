@@ -8,7 +8,6 @@ const fetchSchedule = async () => {
             month: '2-digit',
             day: '2-digit'
         }).format(new Date());
-        console.log(today);
         const { data } = await axios.get(import.meta.env.VITE_API_URL + `${today}`);
         return data.data;
     } catch (error) {
