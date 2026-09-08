@@ -10,8 +10,8 @@
     width: 100%;
     border-radius: 20px;
     padding: 12px;
-    box-shadow: 0 0 5px 1px #757275, 0 0 15px 3px #757275af;
-    background-color: #1f1d1d;
+    box-shadow: 0 0 5px 1px #757275, 0 0 8px 2px #757275af;
+    background-color: #181717;
 }
 
 .card__head {
