@@ -10,7 +10,7 @@
     width: 100%;
     border-radius: 20px;
     padding: 12px;
-    box-shadow: 0 0 5px 1px #757275;
+    box-shadow: 0 0 5px 1px #757275, 0 0 15px 3px #757275af;
     background-color: #1f1d1d;
 }
 
@@ -50,6 +50,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    text-shadow: 0 0 1px #fff;
 }
 
 .separator {
@@ -70,7 +71,7 @@
 }
 
 .current-day-card {
-    box-shadow: 0 0 5px 1px #91218b;
+    box-shadow: 0 0 5px 1px #91218b, 0 0 15px 3px #91218bd0;
 }
 
 .current-day-separator {
