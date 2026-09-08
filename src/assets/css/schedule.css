@@ -20,7 +20,7 @@
     justify-content: space-between;
     font-size: 1.5rem;
     margin-bottom: 12px;
-    text-shadow: 0 0 3px #fff;
+    text-shadow: 0 0 1px #fff, 0 0 2px #ffffffc5;
 }
 
 .card__lesson {
@@ -50,7 +50,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    text-shadow: 0 0 1px #fff;
+    text-shadow: 0 0 1px #fff, 0 0 2px #fff;
 }
 
 .separator {
@@ -71,7 +71,7 @@
 }
 
 .current-day-card {
-    box-shadow: 0 0 5px 1px #91218b, 0 0 15px 3px #91218bd0;
+    box-shadow: 0 0 15px 3px #91218b, 0 0 30px 5px #91218bd0;
 }
 
 .current-day-separator {
@@ -81,42 +81,17 @@
 .lesson {
     position: relative;
     overflow: hidden;
+    animation: lesson 2s infinite ease-in-out alternate;
 }
 
-.lesson::before {
-    content: '';
-    position: absolute;
-    width: 110%;
-    height: 110%;
-    top: -2px;
-    left: -9px;
-    background: linear-gradient(90deg, #ff0000, rgb(107, 0, 0));
-    background-size: 400% 100%;
-    animation: lesson 2s ease-in-out infinite alternate;
-    z-index: 1;
-}
-
-.lesson::after {
-    content: '';
-    position: absolute;
-    inset: 2px;
-    background: #1f1d1d;
-    border-radius: 100px;
-    z-index: 2;
-}
-
-.lesson * {
-    position: relative;
-    z-index: 3;
-}
 
 @keyframes lesson {
     0% {
-        background-position: 0% 50%;
+        box-shadow: 0 0 4px 2px rgb(107, 0, 0), 0 0 15px 3px rgba(107, 0, 0, 0.658);
     }
 
     100% {
-        background-position: 100% 50%;
+        box-shadow: 0 0 8px 3px rgb(107, 0, 0), 0 0 20px 5px rgba(107, 0, 0, 0.658);
     }
 }
 
@@ -135,13 +110,14 @@
     height: 25px;
     animation: queue 3s ease-in-out infinite alternate;
     background: #d49536;
+    box-shadow: 0 0 12px 3px #d49536, 0 0 30px 5px #d49536af;
     z-index: 1;
 }
 
 .queue::after {
     content: '';
     position: absolute;
-    inset: 2px;
+    inset: 1px;
     background: #1f1d1d;
     border-radius: 100px;
     z-index: 2;
