@@ -11,12 +11,12 @@
     border-radius: 20px;
     padding: 12px;
     background-color: #181717;
-    animation: pulse-default 3s infinite ease-in-out alternate;
+    box-shadow: 0 0 7px 1px #555355, 0 0 7px 1px #555355a6;
 }
 
 @keyframes pulse-default {
     from {
-        box-shadow: 0 0 7px 1px #555355, 0 0 7px 1px #555355a6;
+        
     }
     to {
         box-shadow: 0 0 13px 1px #585658, 0 0 14px 2px #777377;
