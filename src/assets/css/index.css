@@ -23,9 +23,6 @@ body {
     color: #fff;
     padding: 20px;
     font-family: "MTSans", sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .error {

@@ -4,12 +4,18 @@ import { convertDate, formatTime } from "../../utils/dateUtil";
 
 const ScheduleCard = ({ data }) => {
     const now = new Date();
-    const dayEnd = Math.max(...data.map(item =>
-        new Date(`${item.дата.slice(0, 10)}T${item.конец}`)
+
+    const firstLesson = Math.min(...data.map(item =>
+        new Date(item.датаНачала)
     ));
 
-    const isFinished = now > new Date(dayEnd);
-    const isCurrentDay = new Date(data[0].дата) < now
+    const lastLesson = Math.max(...data.map(item =>
+        new Date(item.датаОкончания)
+    ));
+
+    const isCurrentDay = new Date(data[0].дата) < now;
+    const isLessonsStart = new Date(firstLesson) < now;
+    const isFinished = now > new Date(lastLesson);
 
     return (
         <div className={`schedule ${isFinished ? 'day-end' : ''} ${isCurrentDay ? 'current-day-card' : 'another-day-card'}`}>
@@ -20,10 +26,10 @@ const ScheduleCard = ({ data }) => {
                 <div className="schedule__title-class">
                     {data[0].день_недели}
                 </div>
-                {isCurrentDay && (
+                {isCurrentDay && isLessonsStart && (
                     <div className={`schedule__title-remaining ${isFinished ? 'time-green' : 'time-red'}`}>
                         Осталось
-                        <span>{formatTime(dayEnd - now)}</span>
+                        <span>{formatTime(lastLesson - now)}</span>
                     </div>
                 )}
             </div>

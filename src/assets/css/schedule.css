@@ -50,7 +50,7 @@
     display: flex;
     white-space: nowrap;
     align-items: end;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     justify-content: space-between;
     margin-bottom: 12px;
     text-shadow: 0 0 1px #fff, 0 0 2px #ffffffc5;
@@ -64,9 +64,8 @@
     animation: appear-from-left 0.7s;
 }
 
-
 .schedule__title-remaining {
-    font-size: 18px;
+    font-size: 1rem;
 }
 
 .time-green span {
