@@ -21,43 +21,44 @@
 .current-day-card::before {
     position: absolute;
     content: '';
-    left: 6px;
-    top: 6px;
-    width: calc(100% - 12px);
-    height: calc(100% - 12px);
+    left: 12px;
+    top: 12px;
+    border-radius: 0;
+    width: calc(100% - 24px);
+    height: calc(100% - 24px);
     z-index: -1;
-    border-radius: 20px;
+    animation: violet-pulse 2s infinite ease-in-out alternate;
 }
 
 .another-day-card::before {
     position: absolute;
     content: '';
-    left: 6px;
-    top: 6px;
-    border-radius: 20px;
-    width: calc(100% - 12px);
-    height: calc(100% - 12px);
+    left: 12px;
+    top: 12px;
+    border-radius: 0;
+    width: calc(100% - 24px);
+    height: calc(100% - 24px);
     z-index: -11;
     animation: gray-pulse 3s infinite ease-in-out alternate;
 }
 
 @keyframes violet-pulse {
     from {
-        box-shadow: 0 0 5px 1px #91218b8c, 0 0 5px 2px #91218b70;
+        box-shadow: 0 0 15px 8px #91218b8c, 0 0 15px 8px #91218b70;
     }
 
     to {
-        box-shadow: 0 0 8px 2px #91218b, 0 0 12px 2px #91218bd0;
+        box-shadow: 0 0 25px 8px #91218b, 0 0 25px 8px #91218bd0;
     }
 }
 
 @keyframes gray-pulse {
     from {
-        box-shadow: 0 0 5px 1px #fff, 0 0 5px 1px #fff;
+        box-shadow: 0 0 13px 3px #fff
     }
 
     to {
-        box-shadow: 0 0 120px 1px #fff, 0 0 120px 1px #fff;
+        box-shadow: 0 0 22px 3px #ffffff;
     }
 }
 
