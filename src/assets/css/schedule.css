@@ -19,7 +19,7 @@
         box-shadow: 0 0 1px 1px #555355, 0 0 2px 1px #555355a6;
     }
     to {
-        box-shadow: 0 0 3px 1px #777377, 0 0 3px 2px #777377;
+        box-shadow: 0 0 1px 3px #777377;
     }
 }
 
