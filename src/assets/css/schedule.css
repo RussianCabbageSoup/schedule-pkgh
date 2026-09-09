@@ -115,6 +115,9 @@
 
 .current-day-card {
     animation: pulse 3s infinite ease-in-out alternate;
+    .card::before {
+        display: none;
+    }
 }
 
 @keyframes pulse {
