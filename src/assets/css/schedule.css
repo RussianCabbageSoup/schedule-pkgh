@@ -10,8 +10,17 @@
     width: 100%;
     border-radius: 20px;
     padding: 12px;
-    box-shadow: 0 0 5px 1px #555355, 0 0 8px 2px #555355a6;
     background-color: #181717;
+    animation: pulse-default 3s infinite ease-in-out alternate;
+}
+
+@keyframes pulse-default {
+    from {
+        box-shadow: 0 0 2px 1px #555355, 0 0 3px 2px #555355a6;
+    }
+    to {
+        box-shadow: 0 0 5px 1px #777377, 0 0 8px 2px #777377;
+    }
 }
 
 .card__head {
