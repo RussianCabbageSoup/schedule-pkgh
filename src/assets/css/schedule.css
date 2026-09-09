@@ -38,22 +38,22 @@
 .current-day-card::before {
     position: absolute;
     content: '';
-    top: 3px;
-    left: 3px;
+    top: 10px;
+    left: 10px;
     border-radius: 20px;
-    width: calc(100% - 6px);
-    height: calc(100% - 6px);
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
     z-index: -1;
     animation: pulse 3s infinite ease-in-out alternate;
 }
 
 @keyframes pulse {
     from {
-        box-shadow: 0 0 12px 1px #91218b8c, 0 0 12px 1px #91218b70;
+        box-shadow: 0 0 12px 2px #91218b8c, 0 0 12px 2px #91218b70;
     }
 
     to {
-        box-shadow: 0 0 15px 1px #91218b, 0 0 15px 1px #91218bd0;
+        box-shadow: 0 0 20px 3px #91218b, 0 0 20px 3px #91218bd0;
     }
 }
 
