@@ -30,8 +30,14 @@
     margin-left: 12px;
 }
 
-.card__head-left span {
-    color: rgb(192, 118, 180);
+.time-green span {
+    color: rgb(17, 207, 58);
+    margin-left: 5px;
+    text-shadow: none;
+}
+
+.time-red span {
+    color: rgb(255, 72, 0);
     margin-left: 5px;
     text-shadow: none;
 }
