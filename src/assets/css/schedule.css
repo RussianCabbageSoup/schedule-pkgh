@@ -48,6 +48,7 @@
     border-radius: 100px;
     padding: 4px 9px;
     width: fit-content;
+    font-size: 1.15rem;
 }
 
 .card__body-end {
@@ -57,11 +58,17 @@
 .card__body-begin,
 .card__body-end {
     white-space: nowrap;
+    justify-self: left;
+}
+
+.card__body-end {
+
 }
 
 .card__body-class {
     display: flex;
     gap: 6px;
+    align-self: flex-end;
 }
 
 .card__body {

@@ -11,10 +11,11 @@ const ScheludeCardItem = ({ item }) => {
 
     return (
         <div className={`card__lesson ${isPass ? 'pass' : isLesson ? 'lesson' : isQueue ? 'queue' : ''}`} key={item.код}>
-            <div className="card__body-begin">{item.начало} - </div>
+            <div className="card__body-begin">{item.начало}-</div>
             <div className="card__body-end">{item.конец}:</div>
             <div className="card__body-class">
                 <p>{item.аудитория} каб.</p>
+                <p>{item.преподаватель}</p>
             </div>
         </div>
     )
