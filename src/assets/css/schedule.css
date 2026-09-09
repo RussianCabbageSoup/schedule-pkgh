@@ -109,15 +109,12 @@
     opacity: 0.3;
 }
 
-.pass-card {
-    opacity: 0.5;
+.pass-card * {
+    opacity: 0.4;
 }
 
 .current-day-card {
     animation: pulse 3s infinite ease-in-out alternate;
-    .card::before {
-        display: none;
-    }
 }
 
 @keyframes pulse {
