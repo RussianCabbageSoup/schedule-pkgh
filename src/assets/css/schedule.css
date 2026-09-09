@@ -24,7 +24,16 @@
     height: calc(100% - 6px);
     background: red;
     z-index: -1;
-    box-shadow: 0 0 12px 1px #6e6d6d, 0 0 12px 1px #6e6d6d91;
+    animation: pulse-default 3s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-default {
+    from {
+        box-shadow: 0 0 5px 1px #6e6d6d, 0 0 5px 1px #6e6d6d91;
+    }
+    to {
+        box-shadow: 0 0 12px 1px #6e6d6d, 0 0 12px 1px #6e6d6d91;
+    }
 }
 
 .card__head {
