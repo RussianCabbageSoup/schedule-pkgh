@@ -1,0 +1,93 @@
+@keyframes appear-from-right {
+    from {
+        opacity: 0;
+        transform: translateX(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes appear-from-left {
+    from {
+        opacity: 0;
+        transform: translateX(-28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes violet-pulse {
+    from {
+        box-shadow: 0 0 15px 8px #91218b8c, 0 0 15px 8px #91218b70;
+    }
+
+    to {
+        box-shadow: 0 0 25px 8px #91218b, 0 0 25px 8px #91218bd0;
+    }
+}
+
+@keyframes gray-pulse {
+    from {
+        box-shadow: 0 0 13px 3px #fff
+    }
+
+    to {
+        box-shadow: 0 0 22px 3px #ffffff;
+    }
+}
+
+@keyframes wave {
+    from {
+        box-shadow: 0 0 2px 1px #91218b;
+    }
+
+    to {
+        box-shadow: 0 0 9px 2px #91218b;
+    }
+}
+
+@keyframes lesson-wait {
+    0% {
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+
+    100% {
+        transform: rotate3d(0, 0, 1, 360deg);
+    }
+}
+
+@keyframes fast-appear {
+    from {
+        transform: translateY(-10px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slow-appear {
+    from {
+        transform: translateY(-70px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes lesson-process {
+    0% {
+        box-shadow: 0 0 4px 2px rgb(107, 0, 0), 0 0 8px 3px rgba(107, 0, 0, 0.658);
+    }
+
+    100% {
+        box-shadow: 0 0 8px 3px rgb(107, 0, 0), 0 0 12px 5px rgba(107, 0, 0, 0.658);
+    }
+}

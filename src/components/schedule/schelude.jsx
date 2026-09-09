@@ -12,7 +12,7 @@ const Schedule = ({ data }) => {
     });
 
     return (
-        <div className="slides">
+        <div className="schedule-list">
             {Object.entries(grouped).map(([date, items]) =>
                 <ScheduleCard key={date} data={items} />
             )}

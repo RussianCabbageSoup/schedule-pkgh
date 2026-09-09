@@ -8,27 +8,27 @@ const ScheduleCard = ({ data }) => {
         new Date(`${item.дата.slice(0, 10)}T${item.конец}`)
     ));
 
-    const isPass = now > new Date(dayEnd);
+    const isFinished = now > new Date(dayEnd);
     const isCurrentDay = new Date(data[0].дата) < now
 
     return (
-        <div className={`card ${isPass ? 'pass-card' : ''} ${isCurrentDay ? 'current-day-card' : 'another-day-card'}`}>
-            <div className="card__head">
-                <div className="card__head-date">
+        <div className={`schedule ${isFinished ? 'day-end' : ''} ${isCurrentDay ? 'current-day-card' : 'another-day-card'}`}>
+            <div className="schedule__title">
+                <div className="schedule__title-date">
                     <p>{convertDate(data[0].дата)}</p>
                 </div>
-                <div className="card__head-class">
+                <div className="schedule__title-class">
                     {data[0].день_недели}
                 </div>
                 {isCurrentDay && (
-                    <div className={`card__head-left ${isPass ? 'time-green' : 'time-red'}`}>
+                    <div className={`schedule__title-remaining ${isFinished ? 'time-green' : 'time-red'}`}>
                         Осталось
                         <span>{formatTime(dayEnd - now)}</span>
                     </div>
                 )}
             </div>
             <div className={`separator ${isCurrentDay ? 'current-day-separator' : ''}`}></div>
-            <div className="card__body">
+            <div className="schedule__body">
                 {data.map(item =>
                     <ScheludeCardItem key={item.код} item={item} />
                 )}

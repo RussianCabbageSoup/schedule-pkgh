@@ -1,4 +1,4 @@
-.slides {
+.schedule-list {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -6,43 +6,15 @@
     margin-bottom: 25px;
 }
 
-.card {
+.schedule {
     width: 100%;
     border-radius: 20px;
     padding: 12px;
     background-color: #181717;
 }
 
-.card .card__head {
-    animation: apear-right 0.7s;
-}
-
-.card .card__body {
-    animation: apear-left 0.7s;
-}
-
-@keyframes apear-right {
-    from {
-        opacity: 0;
-        transform: translateX(28px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes apear-left {
-    from {
-        opacity: 0;
-        transform: translateX(-28px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+.day-end * {
+    opacity: 0.65;
 }
 
 .current-day-card,
@@ -74,27 +46,7 @@
     animation: gray-pulse 3s infinite ease-in-out alternate;
 }
 
-@keyframes violet-pulse {
-    from {
-        box-shadow: 0 0 15px 8px #91218b8c, 0 0 15px 8px #91218b70;
-    }
-
-    to {
-        box-shadow: 0 0 25px 8px #91218b, 0 0 25px 8px #91218bd0;
-    }
-}
-
-@keyframes gray-pulse {
-    from {
-        box-shadow: 0 0 13px 3px #fff
-    }
-
-    to {
-        box-shadow: 0 0 22px 3px #ffffff;
-    }
-}
-
-.card__head {
+.schedule__title {
     display: flex;
     white-space: nowrap;
     align-items: end;
@@ -104,7 +56,16 @@
     text-shadow: 0 0 1px #fff, 0 0 2px #ffffffc5;
 }
 
-.card__head-left {
+.schedule .schedule__title {
+    animation: appear-from-right 0.7s;
+}
+
+.schedule .schedule__body {
+    animation: appear-from-left 0.7s;
+}
+
+
+.schedule__title-remaining {
     font-size: 18px;
 }
 
@@ -118,48 +79,6 @@
     color: rgb(255, 72, 0);
     margin-left: 5px;
     text-shadow: none;
-}
-
-.card__lesson {
-    display: flex;
-    width: 100%;
-    border-radius: 100px;
-    padding: 4px 9px;
-    width: fit-content;
-    font-size: 1.15rem;
-}
-
-.card__body-end {
-    margin-right: 8px;
-}
-
-.card__body-begin,
-.card__body-end {
-    white-space: nowrap;
-    justify-self: left;
-    color: #beafaf;
-    text-shadow: none;
-}
-
-.card__body-class {
-    display: flex;
-    gap: 6px;
-    align-self: flex-end;
-}
-
-.card__body {
-    font-size: 1.2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.pass {
-    opacity: 0.3;
-}
-
-.pass-card * {
-    opacity: 0.5;
 }
 
 .separator {
@@ -185,53 +104,52 @@
     border-radius: 100px;
 }
 
-@keyframes wave {
-    from {
-        box-shadow: 0 0 2px 1px #91218b;
-    }
-
-    to {
-        box-shadow: 0 0 9px 2px #91218b;
-    }
+.schedule__body {
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-.lesson {
+.lesson__item {
+    display: flex;
+    width: 100%;
+    border-radius: 100px;
+    padding: 4px 9px;
+    width: fit-content;
+    font-size: 1.15rem;
+}
+
+.lesson-end {
+    opacity: 0.3;
+}
+
+.lesson-process {
     position: relative;
     overflow: hidden;
-    animation: lesson 2s infinite ease-in-out alternate;
+    animation: lesson-process 2s infinite ease-in-out alternate;
 }
 
-
-@keyframes lesson {
-    0% {
-        box-shadow: 0 0 4px 2px rgb(107, 0, 0), 0 0 8px 3px rgba(107, 0, 0, 0.658);
-    }
-
-    100% {
-        box-shadow: 0 0 8px 3px rgb(107, 0, 0), 0 0 12px 5px rgba(107, 0, 0, 0.658);
-    }
-}
-
-.queue {
+.lesson-wait {
     position: relative;
     perspective: 1000px;
     overflow: hidden;
 }
 
-.queue::before {
+.lesson-wait::before {
     content: '';
     position: absolute;
     left: -50%;
     top: 8px;
     width: 200%;
     height: 25px;
-    animation: queue 3s ease-in-out infinite alternate;
+    animation: lesson-wait 3s ease-in-out infinite alternate;
     background: #d49536;
     box-shadow: 0 0 12px 3px #d49536, 0 0 30px 5px #d49536af;
     z-index: 1;
 }
 
-.queue::after {
+.lesson-wait::after {
     content: '';
     position: absolute;
     inset: 1px;
@@ -241,17 +159,25 @@
 }
 
 
-.queue * {
+.lesson-wait * {
     position: relative;
     z-index: 3;
 }
 
-@keyframes queue {
-    0% {
-        transform: rotate3d(0, 0, 1, 0deg);
-    }
+.schedule__body-start,
+.schedule__body-end {
+    white-space: nowrap;
+    justify-self: left;
+    color: #beafaf;
+    text-shadow: none;
+}
 
-    100% {
-        transform: rotate3d(0, 0, 1, 360deg);
-    }
+.schedule__body-end {
+    margin-right: 8px;
+}
+
+.schedule__body-classroom {
+    display: flex;
+    gap: 6px;
+    align-self: flex-end;
 }
