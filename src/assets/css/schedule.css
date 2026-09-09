@@ -61,10 +61,6 @@
     justify-self: left;
 }
 
-.card__body-end {
-
-}
-
 .card__body-class {
     display: flex;
     gap: 6px;
@@ -97,7 +93,16 @@
 }
 
 .current-day-card {
-    box-shadow: 0 0 7px 1px #91218b, 0 0 12px 2px #91218bd0;
+    animation: pulse 3s infinite ease-in-out alternate;
+}
+
+@keyframes pulse {
+    from {
+        box-shadow: 0 0 5px 1px #91218b, 0 0 5px 2px #91218bd0;
+    }
+    to {
+        box-shadow: 0 0 9px 2px #91218b, 0 0 12px 3px #91218bd0;
+    }
 }
 
 .current-day-separator {
@@ -145,7 +150,8 @@
     content: '';
     position: absolute;
     inset: 1px;
-    background:#181717;;
+    background: #181717;
+    ;
     border-radius: 100px;
     z-index: 2;
 }
