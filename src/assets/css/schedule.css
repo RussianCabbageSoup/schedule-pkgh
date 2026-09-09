@@ -11,7 +11,7 @@
     border-radius: 20px;
     padding: 12px;
     background-color: #181717;
-    box-shadow: 0 0 15px 1px #252425, 0 0 15px 1px #3f3d3fa6;
+    box-shadow: 0 0 12px 1px #181718, 0 0 12px 1px #635f63a6;
 }
 
 @keyframes pulse-default {
