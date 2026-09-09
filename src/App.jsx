@@ -32,16 +32,17 @@ const App = () => {
 
   if (error) {
     return (
-      <BrowserRouter>
-        <div className="error">
-          <p>Произошла ошибка: {error}</p>
-          <div onClick={() => window.location.reload()}>
-            Перезагрузить страницу
-          </div>
-          <p>Или</p>
-          <Link to="https://pkgh.ru/">Перейти на официальный сайт</Link>
+      <div className="error">
+        <p>Произошла ошибка: {error}</p>
+        <div
+          role="button"
+          onClick={() => window.location.reload()}
+        >
+          Перезагрузить страницу
         </div>
-      </BrowserRouter>
+        <p>Или</p>
+        <a href="https://pkgh.ru/">Перейти на официальный сайт</a>
+      </div>
     )
   }
 

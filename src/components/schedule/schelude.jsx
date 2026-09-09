@@ -1,12 +1,8 @@
+import { getMoscowTime } from "../../utils/dateUtil";
 import ScheduleCard from "./scheludeCard";
 
 const Schedule = ({ data }) => {
-    const today = new Intl.DateTimeFormat('en-CA', {
-        timeZone: 'Europe/Moscow',
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit'
-    }).format(new Date());
+    const today = getMoscowTime();
 
     const grouped = {};
     data.filter(item => item.дата.slice(0, 10) >= today).forEach(item => {
