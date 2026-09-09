@@ -8,7 +8,7 @@ const ScheduleCard = ({ data }) => {
         new Date(`${item.дата.slice(0, 10)}T${item.конец}`)
     ));
 
-    const isPass = false //now > new Date(dayEnd);
+    const isPass = now > new Date(dayEnd);
     const isCurrentDay = new Date(data[0].дата) < now
 
     return (

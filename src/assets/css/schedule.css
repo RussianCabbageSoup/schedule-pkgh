@@ -98,10 +98,10 @@
 
 @keyframes pulse {
     from {
-        box-shadow: 0 0 5px 1px #91218b, 0 0 5px 2px #91218bd0;
+        box-shadow: 0 0 5px 1px #91218b8c, 0 0 5px 2px #91218b70;
     }
     to {
-        box-shadow: 0 0 9px 2px #91218b, 0 0 12px 3px #91218bd0;
+        box-shadow: 0 0 8px 2px #91218b, 0 0 12px 2px #91218bd0;
     }
 }
 
