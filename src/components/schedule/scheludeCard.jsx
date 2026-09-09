@@ -8,11 +8,11 @@ const ScheduleCard = ({ data }) => {
         new Date(`${item.дата.slice(0, 10)}T${item.конец}`)
     ));
 
-    const isPass = now > new Date(dayEnd);
+    const isPass = false //now > new Date(dayEnd);
     const isCurrentDay = new Date(data[0].дата) < now
 
     return (
-        <div className={`card ${isPass ? 'pass-card' : ''} ${isCurrentDay ? 'current-day-card' : ''}`}>
+        <div className={`card ${isPass ? 'pass-card' : ''} ${isCurrentDay ? 'current-day-card' : 'another-day-card'}`}>
             <div className="card__head">
                 <div className="card__head-date">
                     <p>{convertDate(data[0].дата)}</p>
