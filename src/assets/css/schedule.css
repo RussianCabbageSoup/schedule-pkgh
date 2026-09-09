@@ -13,17 +13,35 @@
     background-color: #181717;
 }
 
-.card * {
-    animation: apear 0.7s;
+.card .card__head {
+    animation: apear-right 0.7s;
 }
 
-@keyframes apear {
+.card .card__body {
+    animation: apear-left 1.1s;
+}
+
+@keyframes apear-right {
     from {
         opacity: 0;
+        transform: translateX(18px);
     }
 
     to {
         opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes apear-left {
+    from {
+        opacity: 0;
+        transform: translateX(-28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
