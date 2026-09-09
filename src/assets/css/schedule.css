@@ -18,13 +18,13 @@
 }
 
 .card .card__body {
-    animation: apear-left 1.1s;
+    animation: apear-left 0.7s;
 }
 
 @keyframes apear-right {
     from {
         opacity: 0;
-        transform: translateX(18px);
+        transform: translateX(28px);
     }
 
     to {
