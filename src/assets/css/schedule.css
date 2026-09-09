@@ -53,11 +53,11 @@
 
 @keyframes gray-pulse {
     from {
-        box-shadow: 0 0 5px 1px #797474, 0 0 5px 1px #797474b6;
+        box-shadow: 0 0 5px 1px #fff, 0 0 5px 1px #fff;
     }
 
     to {
-        box-shadow: 0 0 12px 1px #797474, 0 0 12px 1px #797474b6;
+        box-shadow: 0 0 12px 1px #fff, 0 0 12px 1px #fff;
     }
 }
 
