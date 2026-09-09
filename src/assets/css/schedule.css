@@ -136,7 +136,7 @@
     opacity: 0.3;
 }
 
-.pass-card {
+.pass-card * {
     opacity: 0.5;
 }
 
@@ -186,7 +186,6 @@
     position: absolute;
     inset: 1px;
     background: #181717;
-    ;
     border-radius: 100px;
     z-index: 2;
 }
