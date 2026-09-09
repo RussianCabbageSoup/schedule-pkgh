@@ -1,5 +1,5 @@
 const ScheludeCardItem = ({ item }) => {
-    const now = new Date('2026-09-09T10:54:00');
+    const now = new Date();
 
     const isPass = now >= new Date(item.датаОкончания);
 
