@@ -137,6 +137,8 @@
 .card__body-end {
     white-space: nowrap;
     justify-self: left;
+    color: #beafaf;
+    text-shadow: none;
 }
 
 .card__body-class {
@@ -150,7 +152,6 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    text-shadow: 0 0 1px #fff, 0 0 2px #fff;
 }
 
 .pass {
