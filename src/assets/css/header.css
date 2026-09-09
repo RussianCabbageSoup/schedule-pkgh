@@ -17,6 +17,10 @@
     animation: slow-apear 1s;
 }
 
+.header__next-lesson span {
+    color: rgb(240, 9, 9);
+}
+
 @keyframes fast-apear {
     from {
         transform: translateY(-10px);

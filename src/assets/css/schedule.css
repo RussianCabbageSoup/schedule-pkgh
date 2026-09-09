@@ -97,17 +97,15 @@
 .card__head {
     display: flex;
     white-space: nowrap;
-    justify-content: space-between;
-    align-items: center;
+    align-items: end;
     font-size: 1.5rem;
+    justify-content: space-between;
     margin-bottom: 12px;
     text-shadow: 0 0 1px #fff, 0 0 2px #ffffffc5;
 }
 
 .card__head-left {
-    font-size: 1.1rem;
-    margin-right: auto;
-    margin-left: 12px;
+    font-size: 18px;
 }
 
 .time-green span {

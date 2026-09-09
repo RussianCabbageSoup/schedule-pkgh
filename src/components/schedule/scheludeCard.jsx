@@ -17,15 +17,15 @@ const ScheduleCard = ({ data }) => {
                 <div className="card__head-date">
                     <p>{convertDate(data[0].дата)}</p>
                 </div>
+                <div className="card__head-class">
+                    {data[0].день_недели}
+                </div>
                 {isCurrentDay && (
                     <div className={`card__head-left ${isPass ? 'time-green' : 'time-red'}`}>
                         Осталось
                         <span>{formatTime(dayEnd - now)}</span>
                     </div>
                 )}
-                <div className="card__head-class">
-                    {data[0].день_недели}
-                </div>
             </div>
             <div className={`separator ${isCurrentDay ? 'current-day-separator' : ''}`}></div>
             <div className="card__body">
