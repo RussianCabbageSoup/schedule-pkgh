@@ -22,7 +22,6 @@
     border-radius: 20px;
     width: calc(100% - 6px);
     height: calc(100% - 6px);
-    background: red;
     z-index: -1;
     animation: pulse-default 3s ease-in-out infinite alternate;
 }
@@ -33,6 +32,20 @@
     }
     to {
         box-shadow: 0 0 12px 1px #6e6d6d, 0 0 12px 1px #6e6d6d91;
+    }
+}
+
+.current-day-card::before {
+    animation: pulse 3s infinite ease-in-out alternate;
+}
+
+@keyframes pulse {
+    from {
+        box-shadow: 0 0 12px 1px #91218b8c, 0 0 12px 1px #91218b70;
+    }
+
+    to {
+        box-shadow: 0 0 15px 2px #91218b, 0 0 15px 2px #91218bd0;
     }
 }
 
@@ -112,20 +125,6 @@
 
 .pass-card {
     opacity: 0.5;
-}
-
-.current-day-card {
-    animation: pulse 3s infinite ease-in-out alternate;
-}
-
-@keyframes pulse {
-    from {
-        box-shadow: 0 0 5px 1px #91218b8c, 0 0 5px 2px #91218b70;
-    }
-
-    to {
-        box-shadow: 0 0 8px 2px #91218b, 0 0 12px 2px #91218bd0;
-    }
 }
 
 .current-day-separator {
