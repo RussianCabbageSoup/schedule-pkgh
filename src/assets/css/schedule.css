@@ -13,6 +13,20 @@
     background-color: #181717;
 }
 
+.card * {
+    animation: apear 0.7s;
+}
+
+@keyframes apear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 .current-day-card,
 .another-day-card {
     position: relative;
