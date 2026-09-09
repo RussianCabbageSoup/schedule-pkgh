@@ -16,10 +16,10 @@
 
 @keyframes pulse-default {
     from {
-        box-shadow: 0 0 2px 1px #555355, 0 0 3px 2px #555355a6;
+        box-shadow: 0 0 2px 1px #555355, 0 0 3px 1px #555355a6;
     }
     to {
-        box-shadow: 0 0 5px 1px #777377, 0 0 8px 2px #777377;
+        box-shadow: 0 0 4px 1px #777377, 0 0 5px 2px #777377;
     }
 }
 
