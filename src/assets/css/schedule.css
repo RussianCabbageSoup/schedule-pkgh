@@ -22,16 +22,39 @@
     position: relative;
 }
 
+.current-day-card {
+    overflow: hidden;
+    box-shadow: 0 0 1px 1px #681964, 0 0 12px 1px #91218b8e;
+}
+
 .current-day-card::before {
     position: absolute;
     content: '';
-    left: 12px;
-    top: 12px;
-    border-radius: 0;
-    width: calc(100% - 24px);
-    height: calc(100% - 24px);
-    z-index: -1;
-    animation: violet-pulse 2s infinite ease-in-out alternate;
+    border-radius: 30px;
+    left: calc(50% - 5px);
+    top: calc(50% - 5px);
+    width: calc(100% + 10px);
+    height: calc(100% + 100px);
+    background: radial-gradient(circle, #91218b, #441642);
+    z-index: 1;
+    inset: 0;
+    filter: blur(15px);
+    transform-origin: top center;
+    animation: current-day-card 2s linear infinite;
+}
+
+.current-day-card::after {
+    position: absolute;
+    content: '';
+    inset: 1px;
+    background-color: #181717;
+    border-radius: 20px;
+    z-index: 2;
+}
+
+.current-day-card * {
+    z-index: 3;
+    position: relative;
 }
 
 .another-day-card::before {

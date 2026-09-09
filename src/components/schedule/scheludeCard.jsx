@@ -18,7 +18,11 @@ const ScheduleCard = ({ data }) => {
     const isFinished = now > new Date(lastLesson);
 
     return (
-        <div className={`schedule ${isFinished ? 'day-end' : ''} ${isCurrentDay ? 'current-day-card' : 'another-day-card'}`}>
+        <div
+            className={`schedule ${isFinished ?
+                'day-end' : ''}  ${isCurrentDay ?
+                    'current-day-card' : 'another-day-card'}`}
+        >
             <div className="schedule__title">
                 <div className="schedule__title-date">
                     <p>{convertDate(data[0].дата)}</p>

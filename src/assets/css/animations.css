@@ -22,13 +22,13 @@
     }
 }
 
-@keyframes violet-pulse {
+@keyframes current-day-card {
     from {
-        box-shadow: 0 0 15px 8px #91218b8c, 0 0 15px 8px #91218b70;
+        transform: rotate3d(0, 0, 1, 0deg);
     }
 
     to {
-        box-shadow: 0 0 25px 8px #91218b, 0 0 25px 8px #91218bd0;
+        transform: rotate3d(0, 0, 1, 360deg);
     }
 }
 
