@@ -9,7 +9,7 @@
 .schedule {
     width: 100%;
     border-radius: 20px;
-    padding: 12px;
+    padding: 10px;
     background-color: #181717;
 }
 
@@ -137,7 +137,7 @@
     display: flex;
     width: 100%;
     border-radius: 100px;
-    padding: 4px 9px;
+    padding: 3px 5px;
     width: fit-content;
     font-size: 1.15rem;
 }
