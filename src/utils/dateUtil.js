@@ -25,11 +25,14 @@ export const convertDate = (date = '') => {
     return `${day} ${DATE.months[mon]}`;
 }
 
-export const getMoscowTime = () => {
+export const getMoscowTime = (step = 0) => {
+    const now = new Date();
+    now.setDate(now.getDate() + step);
+
     return new Intl.DateTimeFormat('en-CA', {
         timeZone: 'Europe/Moscow',
         year: 'numeric',
         month: '2-digit',
         day: '2-digit'
-    }).format(new Date());
+    }).format(now);
 }

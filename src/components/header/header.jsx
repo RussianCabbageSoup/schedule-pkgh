@@ -1,13 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { formatTime, getCurrentDate } from "../../utils/dateUtil";
+import { Context } from "../../context";
 
-const Header = ({ data }) => {
+const Header = () => {
     const [timeLeft, setTimeLeft] = useState(null);
+
+    const { schedules } = useContext(Context);
 
     useEffect(() => {
         const interval = setInterval(() => {
             const now = new Date();
-            const nextLessons = data
+            const nextLessons = schedules.schedules
                 .map(item => new Date(`${item.дата.slice(0, 10)}T${item.начало}`))
                 .filter(d => d > now)
                 .sort((a, b) => a - b);
@@ -15,7 +18,7 @@ const Header = ({ data }) => {
         }, 100);
 
         return () => clearInterval(interval);
-    }, [data]);
+    }, [schedules.schedules]);
 
     return (
         <div className="header">

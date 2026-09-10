@@ -1,20 +1,22 @@
-import { useEffect, useState } from "react";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { fetchSchedule } from "./http/schedule";
+import { Context } from "./context.jsx";
 import Home from "./pages/home";
 import Loader from "./components/UI/loader/loader";
 import "./assets/css/index.css";
 
 const App = () => {
-  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const { schedules } = useContext(Context);
 
   const getSchedule = async () => {
     setLoading(true);
     try {
       const result = await fetchSchedule();
-      setData(result.rasp);
+      schedules.setSchedules(result.rasp);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -49,7 +51,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home data={data} />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </BrowserRouter>
   )

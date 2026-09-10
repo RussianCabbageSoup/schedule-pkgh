@@ -1,17 +1,13 @@
 import axios from "axios";
+import { getMoscowTime } from "../utils/dateUtil";
 
-const fetchSchedule = async () => {
+const fetchSchedule = async (step = 0) => {
     try {
-        const today = new Intl.DateTimeFormat('en-CA', {
-            timeZone: 'Europe/Moscow',
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit'
-        }).format(new Date());
-        const { data } = await axios.get(import.meta.env.VITE_API_URL + `${today}`);
+        const day = getMoscowTime(step);
+        const { data } = await axios.get(import.meta.env.VITE_API_URL + `${day}`);
         return data.data;
     } catch (error) {
-        throw new Error('failed get Schedule');
+        throw new Error('Произошла ошибка');
     }
 }
 

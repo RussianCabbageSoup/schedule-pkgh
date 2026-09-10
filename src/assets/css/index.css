@@ -29,6 +29,16 @@ body {
     text-align: center;
 }
 
+.error-load {
+    margin: 0 auto;
+    width: fit-content;
+    background-color: #fff;
+    color: #000;
+    padding: 6px 12px;
+    border-radius: 100px;
+    margin-bottom: 15px;
+}
+
 .error div {
     background-color: #a53ea0;
     border-radius: 100px;
@@ -38,4 +48,14 @@ body {
     color: #000;
     font-size: 22px;
     box-shadow: 0 0 12px 3px #91218b;
+}
+
+.button {
+    margin: 0 auto;
+    width: fit-content;
+    background-color: #fff;
+    color: #000;
+    padding: 6px 12px;
+    border-radius: 100px;
+    margin-bottom: 15px;
 }
