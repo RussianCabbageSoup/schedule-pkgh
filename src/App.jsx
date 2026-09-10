@@ -30,7 +30,9 @@ const App = () => {
 
   if (loading) {
     return (
-      <div style={{paddingTop: '90px'}}><Loader /></div>
+      <div className="loader-screen">
+        <Loader />
+      </div>
     )
   }
 
