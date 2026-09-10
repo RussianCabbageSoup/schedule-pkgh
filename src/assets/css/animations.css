@@ -91,3 +91,13 @@
         box-shadow: 0 0 8px 3px rgb(107, 0, 0), 0 0 12px 5px rgba(107, 0, 0, 0.658);
     }
 }
+
+@keyframes loading-btn {
+    from {
+        transform: rotate3d(0, 0, 1, -30deg);
+    }
+
+    to {
+        transform: rotate3d(0, 0, 1, 180deg);
+    }
+}
