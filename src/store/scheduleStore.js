@@ -4,7 +4,7 @@ export default class ScheduleStore {
     constructor() {
         this._schedules = [];
         this._week = 7;
-        this._now = new Date();
+        this._now = new Date(); //'2026-09-11T08:26:00'
 
         makeAutoObservable(this);
     }
@@ -18,7 +18,7 @@ export default class ScheduleStore {
     }
 
     setNow(date) {
-        this._now = date; //this._now = new Date(date); this._now.setMinutes(this._now.getMinutes() + 504);
+        this._now = date;   
     }
 
     get schedules() {

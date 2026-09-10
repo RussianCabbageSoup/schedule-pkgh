@@ -42,6 +42,16 @@
     }
 }
 
+@keyframes yellow-pulse {
+    from {
+        box-shadow: 0 0 11px 3px rgb(255, 72, 0);
+    }
+
+    to {
+        box-shadow: 0 0 22px 3px rgba(255, 72, 0, 0.623);
+    }
+}
+
 @keyframes wave {
     from {
         box-shadow: 0 0 2px 1px #91218b;

@@ -18,6 +18,7 @@
 }
 
 .current-day-card,
+.next-day-card,
 .another-day-card {
     position: relative;
 }
@@ -55,6 +56,18 @@
 .current-day-card * {
     z-index: 3;
     position: relative;
+}
+
+.next-day-card::before {
+    position: absolute;
+    content: '';
+    left: 9px;
+    top: 9px;
+    border-radius: 5x;
+    width: calc(100% - 18px);
+    height: calc(100% - 18px);
+    z-index: -11;
+    animation: yellow-pulse 3s infinite ease-in-out alternate;
 }
 
 .another-day-card::before {
