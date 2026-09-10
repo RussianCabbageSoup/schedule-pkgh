@@ -140,6 +140,7 @@
     padding: 3px 5px;
     width: fit-content;
     font-size: 1.15rem;
+    align-items: center;
 }
 
 .lesson-end {
@@ -201,5 +202,9 @@
 .schedule__body-classroom {
     display: flex;
     gap: 6px;
-    align-self: flex-end;
+    flex-wrap: wrap;
+}
+
+.schedule__body-classroom p {
+    white-space: nowrap;
 }
