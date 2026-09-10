@@ -6,18 +6,18 @@ import { fetchSchedule } from "../../http/schedule";
 import Loader from "../UI/loader/loader";
 
 const Schedule = () => {
-    const today = getMoscowTime();
-
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
     const { schedules } = useContext(Context);
 
+    const now = schedules.now;
+    const today = getMoscowTime(now);
 
     const loadNext = async () => {
         try {
             setLoading(true);
-            const data = await fetchSchedule(schedules.week);
+            const data = await fetchSchedule(schedules.now, schedules.week);
 
             if (!data.rasp || data.rasp.length === 0) {
                 setError('Нет данных на сделующую неделю');
@@ -40,11 +40,20 @@ const Schedule = () => {
         grouped[key].push(item);
     });
 
+    const todayItems = grouped[today];
+    const todayFinished = todayItems
+        ? now > new Date(Math.max(...todayItems.map(i => new Date(i.датаОкончания))))
+        : false;
+
     return (
         <>
             <div className="schedule-list">
                 {Object.entries(grouped).map(([date, items]) =>
-                    <ScheduleCard key={date} data={items} />
+                    <ScheduleCard
+                        key={date}
+                        data={items}
+                        todayFinished={todayFinished}
+                    />
                 )}
             </div>
             {!error && (

@@ -1,5 +1,10 @@
+import { useContext } from "react";
+import { Context } from "../../context";
+
 const ScheludeCardItem = ({ item }) => {
-    const now = new Date();
+    const { schedules } = useContext(Context);
+
+    const now = schedules.now;
 
     const isFinished = now >= new Date(item.датаОкончания);
 

@@ -1,10 +1,8 @@
 import { DATE } from "../constants/date";
 
-export const getCurrentDate = () => {
-    const today = new Date();
-
-    const day = today.getDate();
-    const month = today.getMonth();
+export const getCurrentDate = (now = new Date()) => {
+    const day = now.getDate();
+    const month = now.getMonth();
 
     return `${day} ${DATE.months[month]}`;
 }
@@ -25,14 +23,14 @@ export const convertDate = (date = '') => {
     return `${day} ${DATE.months[mon]}`;
 }
 
-export const getMoscowTime = (step = 0) => {
-    const now = new Date();
-    now.setDate(now.getDate() + step);
+export const getMoscowTime = (now = new Date(), step = 0) => {
+    const date = new Date(now);
+    date.setDate(date.getDate() + step);
 
     return new Intl.DateTimeFormat('en-CA', {
         timeZone: 'Europe/Moscow',
         year: 'numeric',
         month: '2-digit',
         day: '2-digit'
-    }).format(now);
+    }).format(date);
 }

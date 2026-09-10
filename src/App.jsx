@@ -15,7 +15,7 @@ const App = () => {
   const getSchedule = async () => {
     setLoading(true);
     try {
-      const result = await fetchSchedule();
+      const result = await fetchSchedule(schedules.now);
       schedules.setSchedules(result.rasp);
     } catch (error) {
       setError(error.message);
