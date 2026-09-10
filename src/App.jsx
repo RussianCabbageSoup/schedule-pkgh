@@ -29,7 +29,9 @@ const App = () => {
   }, []);
 
   if (loading) {
-    return <Loader />
+    return (
+      <div style={{paddingTop: '90px'}}><Loader /></div>
+    )
   }
 
   if (error) {
