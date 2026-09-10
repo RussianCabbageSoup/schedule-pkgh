@@ -7,11 +7,16 @@ export const getCurrentDate = (now = new Date()) => {
     return `${day} ${DATE.months[month]}`;
 }
 
-export const formatTime = (ms) => {
+export const formatTime = (ms, withSec = false) => {
     const totalSec = Math.max(0, Math.floor(ms / 1000));
     const h = Math.floor(totalSec / 3600);
     const m = Math.floor((totalSec % 3600) / 60);
-    const s = totalSec % 60;
+
+    if (withSec) {
+        const s = totalSec % 60;
+        return `${h}ч ${m}м ${s}с`;
+    }
+
     return `${h}ч ${m}м`;
 }
 

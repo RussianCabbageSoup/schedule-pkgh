@@ -2,8 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import ScheludeCardItem from "./scheludeCardItem";
 import { convertDate, formatTime } from "../../utils/dateUtil";
 import { Context } from "../../context";
+import { observer } from "mobx-react-lite";
 
-const ScheduleCard = ({ data, todayFinished }) => {
+const ScheduleCard = observer(({ data, todayFinished }) => {
     const { schedules } = useContext(Context);
 
     const now = schedules.now;
@@ -64,6 +65,6 @@ const ScheduleCard = ({ data, todayFinished }) => {
             </div>
         </div>
     )
-}
+});
 
 export default ScheduleCard;
