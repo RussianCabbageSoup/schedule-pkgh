@@ -44,11 +44,11 @@
 
 @keyframes yellow-pulse {
     from {
-        box-shadow: 0 0 11px 3px rgb(255, 72, 0);
+        box-shadow: 0 0 12px 3px rgb(255, 72, 0);
     }
 
     to {
-        box-shadow: 0 0 22px 3px rgba(255, 72, 0, 0.623);
+        box-shadow: 0 0 19px 3px rgba(255, 72, 0, 0.678);
     }
 }
 

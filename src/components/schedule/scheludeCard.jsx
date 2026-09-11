@@ -29,7 +29,7 @@ const ScheduleCard = observer(({ data, todayFinished }) => {
         <div
             className={`schedule ${isFinished ?
                 'day-end' : ''} ${isCurrentDay ?
-                    'current-day-card' : isNextDay ?
+                    'current-day-card' : isNextDay && todayFinished ?
                         'next-day-card' : 'another-day-card'}`}
         >
             <div className="schedule__title">
