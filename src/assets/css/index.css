@@ -59,6 +59,7 @@ body {
     border-radius: 100px;
     margin-bottom: 15px;
     box-shadow: 0 0 2px 1px #fff;
+    user-select: none;
 }
 
 .error-load {

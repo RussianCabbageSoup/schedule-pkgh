@@ -14,6 +14,7 @@ const Schedule = () => {
     const { schedules } = useContext(Context);
 
     const now = schedules.now;
+    const isSunday = now.getDay() === 0;
     const today = getMoscowTime(now);
 
     const grouped = {};
@@ -47,7 +48,7 @@ const Schedule = () => {
     const todayItems = grouped[today];
     const todayFinished = todayItems
         ? now > new Date(Math.max(...todayItems.map(i => new Date(i.датаОкончания))))
-        : false;
+        : isSunday;
 
     useEffect(() => {
         if(!loading && pendingScroll !== null) {
