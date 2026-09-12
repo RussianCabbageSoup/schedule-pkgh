@@ -5,4 +5,5 @@
     display: flex;
     justify-content: center;
     gap: 6px;
+    animation: appear 1s;
 }
