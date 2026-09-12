@@ -60,7 +60,7 @@ body {
     margin-bottom: 15px;
     box-shadow: 0 0 2px 1px #fff;
     user-select: none;
-    animation: appear 2s;
+    animation: appear-from-bottom 1s;
 }
 
 .error-load {
