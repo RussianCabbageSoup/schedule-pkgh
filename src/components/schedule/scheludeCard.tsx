@@ -1,29 +1,37 @@
-import { useContext, useEffect, useState } from "react";
 import ScheludeCardItem from "./scheludeCardItem";
 import { convertDate, formatTime } from "../../utils/dateUtil";
-import { Context } from "../../context";
+import { useAppContext } from "../../context";
 import { observer } from "mobx-react-lite";
+import type { ScheduleItem } from "../../http/schedule";
 
-const ScheduleCard = observer(({ data, todayFinished }) => {
-    const { schedules } = useContext(Context);
+type ScheduleCardProps = {
+    data: ScheduleItem[];
+    todayFinished: boolean;
+}
+
+const ScheduleCard = observer(({ data, todayFinished } : ScheduleCardProps) => {
+    const { schedules } = useAppContext();
 
     const now = schedules.now;
 
+    const first = data[0];
+    if (!first) return null;
+
     const firstLesson = Math.min(...data.map(item =>
-        new Date(item.датаНачала)
+        new Date(item.датаНачала).getTime()
     ));
 
     const lastLesson = Math.max(...data.map(item =>
-        new Date(item.датаОкончания)
+        new Date(item.датаОкончания).getTime()
     ));
 
-    const isCurrentDay = new Date(data[0].дата) < now;
+    const isCurrentDay = new Date(first.дата).getTime() < now.getTime();
     const isLessonsStart = new Date(firstLesson) < now;
     const isFinished = now > new Date(lastLesson);
 
     const tomorrow = new Date(now);
     tomorrow.setDate(tomorrow.getDate() + 1);
-    const isNextDay = new Date(data[0].дата).toDateString() === tomorrow.toDateString();
+    const isNextDay = new Date(first.дата).toDateString() === tomorrow.toDateString();
 
     return (
         <div
@@ -34,26 +42,26 @@ const ScheduleCard = observer(({ data, todayFinished }) => {
         >
             <div className="schedule__title">
                 <div className="schedule__title-date">
-                    <p>{convertDate(data[0].дата)}</p>
+                    <p>{convertDate(first.дата)}</p>
                 </div>
                 <div className="schedule__title-class">
-                    {data[0].день_недели}
+                    {first.день_недели}
                 </div>
                 {isCurrentDay && isLessonsStart
                     ? <div className={`schedule__title-remaining ${isFinished ? 'time-green' : 'time-red'}`}>
                         Осталось
-                        <span>{formatTime(lastLesson - now)}</span>
+                        <span>{formatTime(lastLesson - now.getTime())}</span>
                     </div>
 
                     : isCurrentDay && !isLessonsStart
                         ? <div className={`schedule__title-remaining ${isFinished ? 'time-green' : 'time-red'}`}>
                             До начала
-                            <span>{formatTime(firstLesson - now)}</span>
+                            <span>{formatTime(firstLesson - now.getTime())}</span>
                         </div>
                         : isNextDay && todayFinished && (
                             <div className={`schedule__title-remaining ${isFinished ? 'time-green' : 'time-red'}`}>
                                 До начала
-                                <span>{formatTime(firstLesson - now)}</span>
+                                <span>{formatTime(firstLesson - now.getTime())}</span>
                             </div>
                         )
                 }

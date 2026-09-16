@@ -1,13 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { formatTime, getCurrentDate } from "../../utils/dateUtil";
-import { Context } from "../../context";
+import { useAppContext } from "../../context";
 import { observer } from "mobx-react-lite";
 
 const Header = observer(() => {
-    const [timeLeft, setTimeLeft] = useState(null);
+    const [timeLeft, setTimeLeft] = useState<number | null>(null);
     const [isLesson, setIsLesson] = useState(false);
 
-    const { schedules } = useContext(Context);
+    const { schedules } = useAppContext();
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -20,17 +20,17 @@ const Header = observer(() => {
 
             if (currentLesson) {
                 setIsLesson(true);
-                setTimeLeft(new Date(currentLesson.датаОкончания) - schedules.now);
+                setTimeLeft(new Date(currentLesson.датаОкончания).getTime() - schedules.now.getTime());
                 return;
             } else {
                 setIsLesson(false);
             }
 
             const nextLessons = schedules.schedules
-                .map(item => new Date(item.датаНачала))
-                .filter(d => d > schedules.now)
+                .map(item => new Date(item.датаНачала).getTime())
+                .filter(d => d > schedules.now.getTime())
                 .sort((a, b) => a - b);
-            setTimeLeft(nextLessons[0] ? nextLessons[0] - schedules.now : null);
+            setTimeLeft(nextLessons[0] ? nextLessons[0] - schedules.now.getTime() : null);
         }, 300);
 
         return () => clearInterval(interval);

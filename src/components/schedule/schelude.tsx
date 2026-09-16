@@ -1,23 +1,24 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getMoscowTime } from "../../utils/dateUtil";
 import ScheduleCard from "./scheludeCard";
-import { Context } from "../../context";
-import { fetchSchedule } from "../../http/schedule";
+import { useAppContext } from "../../context";
+import { fetchSchedule, type ScheduleItem } from "../../http/schedule";
 
 const Schedule = () => {
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
-    const [pendingScroll, setPendingScroll] = useState(null);
+    const [error, setError] = useState<string | null>(null);
+    const [pendingScroll, setPendingScroll] = useState<number | null>(null);
 
-    const listRef = useRef(null);
+    const listRef = useRef<HTMLDivElement | null>(null);
 
-    const { schedules } = useContext(Context);
+    const { schedules } = useAppContext();
 
     const now = schedules.now;
     const isSunday = now.getDay() === 0;
     const today = getMoscowTime(now);
 
-    const grouped = {};
+    const grouped: Record<string, ScheduleItem[]> = {};
+    
     schedules.schedules.filter(item => item.дата.slice(0, 10) >= today).forEach(item => {
         const key = item.дата.slice(0, 10);
         if (!grouped[key]) grouped[key] = [];
@@ -39,7 +40,7 @@ const Schedule = () => {
             schedules.setSchedules([...schedules.schedules, ...data.rasp]);
             schedules.setWeek(schedules.week + 7);
         } catch (error) {
-            setError(error.message);
+            setError(error instanceof Error ? error.message : String(error));
         } finally {
             setLoading(false);
         }
@@ -47,7 +48,7 @@ const Schedule = () => {
 
     const todayItems = grouped[today];
     const todayFinished = todayItems
-        ? now > new Date(Math.max(...todayItems.map(i => new Date(i.датаОкончания))))
+        ? now > new Date(Math.max(...todayItems.map(i => new Date(i.датаОкончания).getTime())))
         : isSunday;
 
     useEffect(() => {
@@ -80,14 +81,13 @@ const Schedule = () => {
                 : loading
                     ? <div className="loading-btn"></div>
                     :
-                    <div
-                        role="button"
+                    <button
                         className="button"
                         onClick={loadNext}
                         disabled={loading}
                     >
                         Следующая неделя
-                    </div>
+                    </button>
             }
         </>
     )

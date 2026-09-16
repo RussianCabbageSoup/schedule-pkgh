@@ -1,16 +1,16 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { fetchSchedule } from "./http/schedule";
-import { Context } from "./context.jsx";
 import Home from "./pages/home";
 import Loader from "./components/UI/loader/loader";
 import "./assets/css/index.css";
+import { useAppContext } from "./context";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
-  const { schedules } = useContext(Context);
+  const { schedules } = useAppContext();
 
   const getSchedule = async () => {
     setLoading(true);
@@ -18,7 +18,7 @@ const App = () => {
       const result = await fetchSchedule(schedules.now);
       schedules.setSchedules(result.rasp);
     } catch (error) {
-      setError(error.message);
+      setError(error instanceof Error ? error.message : String(error));
     } finally {
       setLoading(false);
     }

@@ -1,13 +1,20 @@
 import { DATE } from "../constants/date";
 
-export const getCurrentDate = (now = new Date()) => {
+export interface DateUtil {
+    getCurrentDate: (now?: Date) => string;
+    formatTime: (ms: number, withSec?: boolean) => string;
+    convertDate: (date: string) => string;
+    getMoscowTime: (now?: Date, step?: number) => string;
+}
+
+export const getCurrentDate = (now: Date = new Date()): string => {
     const day = now.getDate();
     const month = now.getMonth();
 
     return `${day} ${DATE.months[month]}`;
 }
 
-export const formatTime = (ms, withSec = false) => {
+export const formatTime = (ms: number, withSec: boolean = false): string => {
     const totalSec = Math.max(0, Math.floor(ms / 1000));
     const h = Math.floor(totalSec / 3600);
     const m = Math.floor((totalSec % 3600) / 60);
@@ -20,7 +27,7 @@ export const formatTime = (ms, withSec = false) => {
     return `${h}ч ${m}м`;
 }
 
-export const convertDate = (date = '') => {
+export const convertDate = (date: string): string => {
     const d = new Date(date);
     const day = d.getDate();
     const mon = d.getMonth();
@@ -28,7 +35,7 @@ export const convertDate = (date = '') => {
     return `${day} ${DATE.months[mon]}`;
 }
 
-export const getMoscowTime = (now = new Date(), step = 0) => {
+export const getMoscowTime = (now: Date = new Date(), step: number = 0): string => {
     const date = new Date(now);
     date.setDate(date.getDate() + step);
 

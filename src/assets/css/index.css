@@ -15,6 +15,16 @@
     box-sizing: border-box;
 }
 
+button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
 html {
     height: 100%;
 }

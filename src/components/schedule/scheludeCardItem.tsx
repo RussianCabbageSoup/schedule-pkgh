@@ -1,8 +1,12 @@
-import { useContext } from "react";
-import { Context } from "../../context";
+import { useAppContext } from "../../context";
+import type { ScheduleItem } from "../../http/schedule";
 
-const ScheludeCardItem = ({ item }) => {
-    const { schedules } = useContext(Context);
+type ScheduleCardItemProps = {
+    item: ScheduleItem;
+};
+
+const ScheludeCardItem = ({ item } : ScheduleCardItemProps) => {
+    const { schedules } = useAppContext();
 
     const now = schedules.now;
 
