@@ -7,6 +7,8 @@ export interface AppContext {
 
 export const Context = createContext<AppContext | null>(null);
 
+const scheduleStore = new ScheduleStore();
+
 export const useAppContext = (): AppContext => {
     const ctx = useContext(Context);
     if (!ctx) throw new Error('Context Error');
@@ -16,7 +18,7 @@ export const useAppContext = (): AppContext => {
 export const ContextProvider = ({ children }: { children: ReactNode }) => {
     return (
         <Context.Provider value={{
-            schedules: new ScheduleStore()
+            schedules: scheduleStore
         }}>
             {children}
         </Context.Provider>

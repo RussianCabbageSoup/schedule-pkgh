@@ -1,3 +1,4 @@
+import { observer } from "mobx-react-lite";
 import { useAppContext } from "../../context";
 import type { ScheduleItem } from "../../http/schedule";
 
@@ -5,7 +6,7 @@ type ScheduleCardItemProps = {
     item: ScheduleItem;
 };
 
-const ScheludeCardItem = ({ item } : ScheduleCardItemProps) => {
+const ScheludeCardItem = observer(({ item } : ScheduleCardItemProps) => {
     const { schedules } = useAppContext();
 
     const now = schedules.now;
@@ -24,7 +25,6 @@ const ScheludeCardItem = ({ item } : ScheduleCardItemProps) => {
                 'lesson-end' : isLesson ?
                     'lesson-process' : isQueue ?
                         'lesson-wait' : ''}`}
-            key={item.код}
         >
             <div className="schedule__body-start">{item.начало}-</div>
             <div className="schedule__body-end">{item.конец}:</div>
@@ -34,6 +34,6 @@ const ScheludeCardItem = ({ item } : ScheduleCardItemProps) => {
             </div>
         </div>
     )
-}
+});
 
 export default ScheludeCardItem;

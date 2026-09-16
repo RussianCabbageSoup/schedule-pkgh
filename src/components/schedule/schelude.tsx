@@ -3,8 +3,9 @@ import { getMoscowTime } from "../../utils/dateUtil";
 import ScheduleCard from "./scheludeCard";
 import { useAppContext } from "../../context";
 import { fetchSchedule, type ScheduleItem } from "../../http/schedule";
+import { observer } from "mobx-react-lite";
 
-const Schedule = () => {
+const Schedule = observer(() => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [pendingScroll, setPendingScroll] = useState<number | null>(null);
@@ -91,6 +92,6 @@ const Schedule = () => {
             }
         </>
     )
-}
+});
 
 export default Schedule
