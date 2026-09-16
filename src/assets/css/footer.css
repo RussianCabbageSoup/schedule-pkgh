@@ -6,4 +6,5 @@
     justify-content: center;
     gap: 6px;
     animation: appear 1s;
+    padding-bottom: 30px;
 }

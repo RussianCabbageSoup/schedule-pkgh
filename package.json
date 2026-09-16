@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/cli": "^8.5.2",
+    "@capacitor/core": "^8.5.2",
     "axios": "^1.20.0",
     "mobx": "^7.0.3",
     "mobx-react-lite": "^5.0.3",
