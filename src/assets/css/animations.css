@@ -133,3 +133,23 @@
         transform: rotate3d(0, 0, 1, 180deg);
     }
 }
+
+@keyframes sidebar-in {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes sidebar-out {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}

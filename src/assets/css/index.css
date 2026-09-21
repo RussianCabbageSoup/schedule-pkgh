@@ -2,6 +2,7 @@
 @import url(footer.css);
 @import url(header.css);
 @import url(animations.css);
+@import url(sidebar.css);
 
 @font-face {
     font-family: "MTSans";
@@ -22,6 +23,15 @@ button {
     color: inherit;
     background-color: transparent;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    outline: none;
+}
+
+button:focus,
+button:active {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -36,6 +46,7 @@ body {
     color: #fff;
     padding: 12px;
     font-family: "MTSans", sans-serif;
+    position: relative;
 }
 
 

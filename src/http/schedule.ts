@@ -11,6 +11,7 @@ export interface ScheduleItem {
     конец: string;
     аудитория: string;
     преподаватель: string;
+    дисциплина: string;
 }
 
 export interface ApiResponse {

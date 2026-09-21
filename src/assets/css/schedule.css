@@ -218,6 +218,10 @@
     flex-wrap: wrap;
 }
 
-.schedule__body-classroom p {
-    white-space: nowrap;
+.schedule__body-classroom p:nth-child(2) {
+    color: rgba(140, 149, 229, 0.493);
+}
+
+.schedule__body-classroom p:nth-child(3) {
+    color: rgba(214, 200, 200, 0.548);
 }

@@ -6,17 +6,19 @@ type ScheduleCardItemProps = {
     item: ScheduleItem;
 };
 
-const ScheludeCardItem = observer(({ item } : ScheduleCardItemProps) => {
+const ScheludeCardItem = observer(({ item }: ScheduleCardItemProps) => {
     const { schedules } = useAppContext();
 
     const now = schedules.now;
 
     const isFinished = now >= new Date(item.датаОкончания);
 
-    const isLesson = new Date(item.датаНачала) < now
+    const isLesson = schedules.showAnimation 
+        && new Date(item.датаНачала) < now
         && new Date(item.датаОкончания) > now;
 
-    const isQueue = new Date(item.датаНачала) > now
+    const isQueue = schedules.showAnimation 
+        && new Date(item.датаНачала) > now
         && new Date(item.датаНачала) <= new Date(now.getTime() + 30 * 60 * 1000);
 
     return (
@@ -30,7 +32,12 @@ const ScheludeCardItem = observer(({ item } : ScheduleCardItemProps) => {
             <div className="schedule__body-end">{item.конец}:</div>
             <div className="schedule__body-classroom">
                 <p>{item.аудитория} каб.</p>
-                <p>{item.преподаватель}</p>
+                {schedules.showTeacher && (
+                    <p>{item.преподаватель}</p>
+                )}
+                {schedules.showSubject && (
+                    <p>{item.дисциплина}</p>
+                )}
             </div>
         </div>
     )
