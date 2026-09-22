@@ -145,11 +145,13 @@
 }
 
 @keyframes sidebar-out {
-    from {
+    0% {
         transform: translateX(0);
     }
-
-    to {
+    50% {
+        transform: translateX(-20%);
+    }
+    100% {
         transform: translateX(100%);
     }
 }

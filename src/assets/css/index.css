@@ -49,6 +49,19 @@ body {
     position: relative;
 }
 
+.overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: #0000008c;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    touch-action: none;
+}
 
 .error {
     text-align: center;

@@ -26,63 +26,70 @@ const Sidebar = () => {
                 </button>
             )}
             {showSidebar && (
-                <div
-                    className={`sidebar ${closing ? 'sidebar-closing' : 'show-sidebar'}`}
-                    onAnimationEnd={() => {
-                        if (closing) {
-                            setClosing(false);
-                            setShowSidebar(false);
-                        }
-                    }}
-                >
-                    <div className="sidebar_menu">
-                        <button 
-                            className="close-btn"
-                            onClick={closeSidebar}
-                        >
-                            <img src={closeIcon} alt="закрыть" />
-                        </button>
-                        <div className="sidebar_menu-title">Настойки</div>
-                        <ul className="setting">
-                            <li className="setting__row">
-                                <p>Показать преподавателя</p>
-                                <button
-                                    className={`setting__row-btn ${showTeacher ? 'setting-btn-active' : ''}`}
-                                    onClick={() => {
-                                        setShowTeacher(!showTeacher);
-                                        schedules.setShowTeacher(!showTeacher);
-                                    }}
-                                >
-                                    <div></div>
-                                </button>
-                            </li>
-                            <li className="setting__row">
-                                <p>Показать предмет</p>
-                                <button
-                                    className={`setting__row-btn ${showSubject ? 'setting-btn-active' : ''}`}
-                                    onClick={() => {
-                                        setShowSubject(!showSubject);
-                                        schedules.setShowSubject(!showSubject);
-                                    }}
-                                >
-                                    <div></div>
-                                </button>
-                            </li>
-                            <li className="setting__row">
-                                <p>Показывать анимации для пар</p>
-                                <button
-                                    className={`setting__row-btn ${showAnimation ? 'setting-btn-active' : ''}`}
-                                    onClick={() => {
-                                        setShowAnimation(!showAnimation);
-                                        schedules.setShowAnimation(!showAnimation);
-                                    }}
-                                >
-                                    <div></div>
-                                </button>
-                            </li>
-                        </ul>
+                <>
+                    <div 
+                        className="overlay"
+                        onClick={closeSidebar}
+                        onTouchMove={closeSidebar}
+                    ></div>
+                    <div
+                        className={`sidebar ${closing ? 'sidebar-closing' : 'show-sidebar'}`}
+                        onAnimationEnd={() => {
+                            if (closing) {
+                                setClosing(false);
+                                setShowSidebar(false);
+                            }
+                        }}
+                    >
+                        <div className="sidebar_menu">
+                            <button
+                                className="close-btn"
+                                onClick={closeSidebar}
+                            >
+                                <img src={closeIcon} alt="закрыть" />
+                            </button>
+                            <div className="sidebar_menu-title">Настойки</div>
+                            <ul className="setting">
+                                <li className="setting__row">
+                                    <p>Показать преподавателя</p>
+                                    <button
+                                        className={`setting__row-btn ${showTeacher ? 'setting-btn-active' : ''}`}
+                                        onClick={() => {
+                                            setShowTeacher(!showTeacher);
+                                            schedules.setShowTeacher(!showTeacher);
+                                        }}
+                                    >
+                                        <div></div>
+                                    </button>
+                                </li>
+                                <li className="setting__row">
+                                    <p>Показать предмет</p>
+                                    <button
+                                        className={`setting__row-btn ${showSubject ? 'setting-btn-active' : ''}`}
+                                        onClick={() => {
+                                            setShowSubject(!showSubject);
+                                            schedules.setShowSubject(!showSubject);
+                                        }}
+                                    >
+                                        <div></div>
+                                    </button>
+                                </li>
+                                <li className="setting__row">
+                                    <p>Показывать анимации для пар</p>
+                                    <button
+                                        className={`setting__row-btn ${showAnimation ? 'setting-btn-active' : ''}`}
+                                        onClick={() => {
+                                            setShowAnimation(!showAnimation);
+                                            schedules.setShowAnimation(!showAnimation);
+                                        }}
+                                    >
+                                        <div></div>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                </>
             )}
         </>
     )

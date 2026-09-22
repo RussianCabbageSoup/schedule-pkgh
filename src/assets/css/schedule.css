@@ -219,9 +219,9 @@
 }
 
 .schedule__body-classroom p:nth-child(2) {
-    color: rgba(140, 149, 229, 0.493);
+    color: #fff;
 }
 
 .schedule__body-classroom p:nth-child(3) {
-    color: rgba(214, 200, 200, 0.548);
+    color: rgba(201, 84, 255, 0.664);
 }
