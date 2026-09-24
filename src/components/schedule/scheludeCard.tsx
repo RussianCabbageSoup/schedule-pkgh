@@ -9,7 +9,7 @@ type ScheduleCardProps = {
     todayFinished: boolean;
 }
 
-const ScheduleCard = observer(({ data, todayFinished } : ScheduleCardProps) => {
+const ScheduleCard = observer(({ data, todayFinished }: ScheduleCardProps) => {
     const { schedules } = useAppContext();
 
     const now = schedules.now;

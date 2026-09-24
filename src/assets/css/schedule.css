@@ -11,6 +11,8 @@
     border-radius: 20px;
     padding: 10px;
     background-color: #181717;
+    position: relative;
+    margin-bottom: 10px;
 }
 
 .day-end * {
@@ -93,7 +95,11 @@
 }
 
 .schedule .schedule__title {
-    animation: appear-from-right 0.7s;
+    animation: appear 1.7s;
+}
+
+.schedule__title .note {
+    animation: none;
 }
 
 .schedule .schedule__body {
@@ -154,6 +160,7 @@
     width: fit-content;
     font-size: 1.15rem;
     align-items: center;
+    position: relative;
 }
 
 .lesson-end {

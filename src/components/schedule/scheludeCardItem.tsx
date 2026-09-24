@@ -1,6 +1,7 @@
 import { observer } from "mobx-react-lite";
 import { useAppContext } from "../../context";
 import type { ScheduleItem } from "../../http/schedule";
+import Note from "../note/Note";
 
 type ScheduleCardItemProps = {
     item: ScheduleItem;
@@ -39,6 +40,7 @@ const ScheludeCardItem = observer(({ item }: ScheduleCardItemProps) => {
                     <p>{item.дисциплина}</p>
                 )}
             </div>
+            <Note />
         </div>
     )
 });
