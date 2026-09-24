@@ -54,7 +54,7 @@ body {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background: #000000;
+    background: #0000004f;
     z-index: 50;
     top: 0;
     left: 0;
@@ -62,7 +62,8 @@ body {
     right: 0;
     overflow: hidden;
     touch-action: none;
-    opacity: 0.7;
+    backdrop-filter: blur(2.5px);
+    animation: appear 0.3s;
 }
 
 .error {

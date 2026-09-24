@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppContext } from "../../context";
 import settingIcon from "../../assets/icons/setting.png";
 import closeIcon from "../../assets/icons/close_111152.svg";
@@ -15,6 +15,13 @@ const Sidebar = () => {
 
     const closeSidebar = () => setClosing(true);
 
+    useEffect(() => {
+        if (!showSidebar) return;
+        const prev = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+        return () => { document.body.style.overflow = prev; };
+    }, [showSidebar]);
+
     return (
         <>
             {!showSidebar && (
@@ -27,7 +34,7 @@ const Sidebar = () => {
             )}
             {showSidebar && (
                 <>
-                    <div 
+                    <div
                         className="overlay"
                         onClick={closeSidebar}
                         onTouchMove={closeSidebar}

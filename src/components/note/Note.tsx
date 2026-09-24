@@ -1,10 +1,17 @@
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import icon from "../../assets/icons/pen_edit_pencil_modify_icon_149413.svg";
 import { createPortal } from "react-dom";
 
 const Note = () => {
     const [showModal, setShowModal] = useState(false);
     console.log(showModal);
+
+    useEffect(() => {
+        if (!showModal) return;
+        const prev = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+        return () => { document.body.style.overflow = prev; };
+    }, [showModal]);
 
     return (
         <>
@@ -13,7 +20,7 @@ const Note = () => {
             </button>
             {showModal && createPortal(
                 <div className="modal">
-                    <div className="overlay" 
+                    <div className="overlay"
                         onClick={() => setShowModal(false)}
                         onTouchMove={() => setShowModal(false)}
                     ></div>
