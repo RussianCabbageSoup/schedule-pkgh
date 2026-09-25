@@ -134,7 +134,7 @@ body {
 .loading-btn {
     position: relative;
     width: 70%;
-    margin: 0 auto;
+    margin: 20px auto;
     height: 30px;
     overflow: hidden;
     border-radius: 100px;

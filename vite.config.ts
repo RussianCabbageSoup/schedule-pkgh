@@ -3,8 +3,8 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  server: {
+    plugins: [react()],
+    server: {
         proxy: {
             '/api': {
                 target: 'https://schedule-server-rho.vercel.app/',
