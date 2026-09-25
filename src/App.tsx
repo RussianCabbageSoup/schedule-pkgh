@@ -42,7 +42,6 @@ const App = () => {
         <p>Произошла ошибка: {error}</p>
         <button
           className="button"
-          style={{ width: "fit-content"}}
           onClick={() => window.location.reload()}
         >
           Перезагрузить страницу
