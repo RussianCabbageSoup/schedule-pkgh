@@ -14,25 +14,79 @@
     width: 12px;
 }
 
+.note__loader {
+    width: 12px;
+    height: 12px;
+    margin-left: auto;
+    border-radius: 50%;
+    border: 2px solid #00000033;
+    border-top-color: #e9e7e4;
+    animation: note-loader-spin 0.7s linear infinite;
+}
+
+.spinner {
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    border: 3px solid #00000026;
+    border-top-color: #000;
+    animation: note-loader-spin 0.7s linear infinite;
+}
+
+.modal__error {
+    color: #d00;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+@keyframes note-loader-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .modal__body {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;
-    background: #e9e7e4ec;
+    background: #e9e7e4;
     color: #000;
     border-radius: 20px;
     min-height: 200px;
     min-width: 300px;
     padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal__body span {
+    font-size: 0.8rem;
+    text-align: center;
+    margin-bottom: 7px;
+    color: #000000af;
 }
 
 .modal__body p {
     font-size: 2rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.modal__body img {
+    width: 100px;
+    margin: 0 auto;
+    margin-bottom: 15px;
 }
 
 .modal__body button {
@@ -47,6 +101,7 @@
 
 .modal__body form {
     margin-bottom: 20px;
+    width: 100%;
 }
 
 .modal__body form .block {
@@ -54,6 +109,7 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
+    
 }
 
 .modal__body form .block input {

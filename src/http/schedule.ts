@@ -24,7 +24,7 @@ const fetchSchedule = async (now: Date = new Date(), step: number = 0): Promise<
         const { data } = await axios.get(import.meta.env.VITE_PKGH_URL + `${day}`);
         return data.data;
     } catch (error) {
-        throw new Error('Faited to fetch schedule');
+        throw new Error(`Faited to fetch schedule: ${ error instanceof Error ? error.message : '' }`);
     }
 }
 
