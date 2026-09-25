@@ -40,12 +40,13 @@ const App = () => {
     return (
       <div className="error">
         <p>Произошла ошибка: {error}</p>
-        <div
-          role="button"
+        <button
+          className="button"
+          style={{ width: "fit-content"}}
           onClick={() => window.location.reload()}
         >
           Перезагрузить страницу
-        </div>
+        </button>
         <p>Или</p>
         <a href="https://pkgh.ru/">Перейти на официальный сайт</a>
       </div>

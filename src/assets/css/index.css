@@ -35,6 +35,22 @@ button:active {
     -webkit-tap-highlight-color: transparent;
 }
 
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background: transparent;
+    outline: none;
+}
+
+
 
 html {
     height: 100%;

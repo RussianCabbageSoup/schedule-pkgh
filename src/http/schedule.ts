@@ -21,7 +21,7 @@ export interface ApiResponse {
 const fetchSchedule = async (now: Date = new Date(), step: number = 0): Promise<ApiResponse> => {
     try {
         const day = getMoscowTime(now, step);
-        const { data } = await axios.get(import.meta.env.VITE_API_URL + `${day}`);
+        const { data } = await axios.get(import.meta.env.VITE_PKGH_URL + `${day}`);
         return data.data;
     } catch (error) {
         throw new Error('Произошла ошибка');

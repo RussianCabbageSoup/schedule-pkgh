@@ -6,8 +6,8 @@
     align-items: center;
     padding: 2px;
     margin-left: auto;
-    margin-top: -7px;
     box-shadow: 0 0 2px 1px #fff;
+    user-select: none;
 }
 
 .note img {
@@ -32,14 +32,45 @@
     font-size: 2rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .modal__body button {
     background: #000;
     color: #fff;
     width: 100%;
-    margin-top: 50px;
     border-radius: 100px;
     padding: 5px 12px;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.modal__body form {
+    margin-bottom: 20px;
+}
+
+.modal__body form .block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.modal__body form .block input {
+    width: 100%;
+    border: 1px solid #000000b6;
+    border-radius: 50px;
+    padding: 4px 9px;
+}
+
+.modal__body form .block label {
+    width: 100%;
+    color: #00000093;
+    margin-bottom: 2px;
+    text-align: left;
+}
+
+.modal__body form .block span {
+    font-size: 0.7rem;
+    color: red;
 }

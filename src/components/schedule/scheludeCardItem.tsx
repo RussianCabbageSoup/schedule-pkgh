@@ -14,11 +14,11 @@ const ScheludeCardItem = observer(({ item }: ScheduleCardItemProps) => {
 
     const isFinished = now >= new Date(item.датаОкончания);
 
-    const isLesson = schedules.showAnimation 
+    const isLesson = schedules.showAnimation
         && new Date(item.датаНачала) < now
         && new Date(item.датаОкончания) > now;
 
-    const isQueue = schedules.showAnimation 
+    const isQueue = schedules.showAnimation
         && new Date(item.датаНачала) > now
         && new Date(item.датаНачала) <= new Date(now.getTime() + 30 * 60 * 1000);
 
@@ -40,7 +40,9 @@ const ScheludeCardItem = observer(({ item }: ScheduleCardItemProps) => {
                     <p>{item.дисциплина}</p>
                 )}
             </div>
-            <Note />
+            {!isFinished && !isLesson && (
+                <Note />
+            )}
         </div>
     )
 });
