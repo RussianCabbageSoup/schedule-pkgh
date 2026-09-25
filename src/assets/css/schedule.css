@@ -233,3 +233,19 @@
 .schedule__body-classroom p:nth-child(3) {
     color: rgba(201, 84, 255, 0.664);
 }
+
+@media (min-width: 670px) {
+    .schedule-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px
+    };
+}
+
+@media (min-width: 1000px) {
+    .schedule-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px
+    };
+}
