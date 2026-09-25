@@ -101,7 +101,7 @@ const Note = () => {
                         ? <div className="modal__body">
                             <p>Победа</p>
                             <img src={succesIcon} alt="" />
-                            <span>Можно будет сразу заметки делать когда они будут (если будут)</span>
+                            <span>Можно будет сразу заметки делать когда они будут (если будут (скорее всего будут))</span>
                             <button onClick={closeModal}>Закрыть</button>
                         </div>
                         : !showRegistr && <div className="modal__body">
