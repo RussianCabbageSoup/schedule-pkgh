@@ -103,14 +103,14 @@ body {
 }
 
 .button {
-    margin: 0 auto;
+    margin: 20px auto;
     width: 100%;
+    max-width: 320px;
     text-align: center;
     background-color: #fff;
     color: #000;
     padding: 6px 12px;
     border-radius: 100px;
-    margin-bottom: 15px;
     box-shadow: 0 0 2px 1px #fff;
     user-select: none;
     animation: appear-from-bottom 1s;

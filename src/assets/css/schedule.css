@@ -3,7 +3,6 @@
     flex-direction: column;
     width: 100%;
     gap: 10px;
-    margin-bottom: 25px;
 }
 
 .schedule {
@@ -246,6 +245,14 @@
     .schedule-list {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+        gap: 30px
+    };
+}
+
+@media (min-width: 1560px) {
+    .schedule-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
         gap: 30px
     };
 }

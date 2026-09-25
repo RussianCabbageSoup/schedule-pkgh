@@ -82,13 +82,15 @@ const Schedule = observer(() => {
                 : loading
                     ? <div className="loading-btn"></div>
                     :
-                    <button
-                        className="button"
-                        onClick={loadNext}
-                        disabled={loading}
-                    >
-                        Следующая неделя
-                    </button>
+                    <div style={{ width: '100%', display: 'flex' }}>
+                        <button
+                            className="button"
+                            onClick={loadNext}
+                            disabled={loading}
+                        >
+                            Следующая неделя
+                        </button>
+                    </div>
             }
         </>
     )
