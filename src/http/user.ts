@@ -10,6 +10,11 @@ const signUpMessages: Record<number, string> = {
     500: "Ошибка на сервере, попробуй позже",
 };
 
+export interface UserData {
+    username?: string;
+}
+
+
 const getErrorMessage = (error: unknown) => {
     if (!axios.isAxiosError(error)) return "Что-то пошло не так";
 
@@ -18,7 +23,7 @@ const getErrorMessage = (error: unknown) => {
     return signUpMessages[error.response.status] ?? "Что-то пошло не так";
 };
 
-export const signUp = async (username: string, password: string) => {
+export const signUp = async (username: string, password: string): Promise<UserData> => {
     try {
         const { data } = await $host.post('/api/user/sign-up', {
             username,
@@ -30,11 +35,11 @@ export const signUp = async (username: string, password: string) => {
     }
 };
 
-export const checkAuth = async () => {
+export const checkAuth = async (): Promise<UserData> => {
     try {
         const { data } = await $authHost.get('/api/user/me/auth');
         return data;
-    } catch {
-        return null;
+    } catch (error) {
+        throw new Error(getErrorMessage(error));
     }
 };

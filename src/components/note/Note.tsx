@@ -1,10 +1,12 @@
-import { memo, useEffect, useState, type MouseEvent } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import icon from "../../assets/icons/pen_edit_pencil_modify_icon_149413.svg";
 import { createPortal } from "react-dom";
-import { checkAuth, signUp } from "../../http/user";
+import { signUp } from "../../http/user";
 import succesIcon from "../../assets/icons/emblemdefault_103756.svg";
+import { observer } from "mobx-react-lite";
+import { useAppContext } from "../../context";
 
-const Note = () => {
+const Note = observer(() => {
     const [showModal, setShowModal] = useState(false);
     const [showRegistr, setRegisrtr] = useState(false);
 
@@ -15,21 +17,9 @@ const Note = () => {
     const [pError, setPError] = useState<string>('');
     const [regError, setRegError] = useState<string>('');
 
-    const [success, setSuccess] = useState<boolean>();
-    const [authLoading, setAuthLoading] = useState(true);
     const [submitting, setSubmitting] = useState(false);
 
-    useEffect(() => {
-        let mounted = true;
-        checkAuth()
-            .then((data) => {
-                if (mounted) setSuccess(Boolean(data?.username));
-            })
-            .finally(() => {
-                if (mounted) setAuthLoading(false);
-            });
-        return () => { mounted = false; };
-    }, []);
+    const { user } = useAppContext();
 
     useEffect(() => {
         if (!showModal) return;
@@ -37,6 +27,7 @@ const Note = () => {
         document.body.style.overflow = "hidden";
         return () => { document.body.style.overflow = prev; };
     }, [showModal]);
+
 
     const handleClick = async (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
         e.preventDefault();
@@ -60,7 +51,7 @@ const Note = () => {
             const response = await signUp(username, password);
             if (response.username) {
                 setRegisrtr(false);
-                setSuccess(true);
+                user.setIsAuth(true);
             }
         } catch (error) {
             setRegError(error instanceof Error ? error.message : 'Не получилось зарегистрироваться');
@@ -85,19 +76,16 @@ const Note = () => {
 
     return (
         <>
-            {authLoading
-                ? <span className="note__loader" />
-                : <button className="note" onClick={openModal}>
-                    <img src={icon} alt="заметка" />
-                </button>
-            }
+            <button className="note" onClick={openModal}>
+                <img src={icon} alt="заметка" />
+            </button>
             {showModal && createPortal(
                 <div className="modal">
                     <div className="overlay"
                         onClick={closeModal}
                         onTouchMove={closeModal}
                     ></div>
-                    {success
+                    {user.isAuth
                         ? <div className="modal__body">
                             <p>Победа</p>
                             <img src={succesIcon} alt="" />
@@ -149,6 +137,6 @@ const Note = () => {
             )}
         </>
     )
-};
+});
 
-export default memo(Note);
+export default Note;

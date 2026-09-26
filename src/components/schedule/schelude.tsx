@@ -4,9 +4,11 @@ import ScheduleCard from "./scheludeCard";
 import { useAppContext } from "../../context";
 import { fetchSchedule, type ScheduleItem } from "../../http/schedule";
 import { observer } from "mobx-react-lite";
+import Loader from "../UI/loader/loader";
 
 const Schedule = observer(() => {
     const [loading, setLoading] = useState(false);
+    const [initialLoading, setInitialLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [pendingScroll, setPendingScroll] = useState<number | null>(null);
 
@@ -25,6 +27,25 @@ const Schedule = observer(() => {
         if (!grouped[key]) grouped[key] = [];
         grouped[key].push(item);
     });
+
+    const loadInitial = async () => {
+        setInitialLoading(true);
+        setError(null);
+        try {
+            const data = await fetchSchedule(schedules.now);
+
+            if (!data.rasp) {
+                setError('Не удалось загрузить расписание');
+                return
+            }
+
+            schedules.setSchedules(data.rasp);
+        } catch (error) {
+            setError(error instanceof Error ? error.message : String(error));
+        } finally {
+            setInitialLoading(false);
+        }
+    }
 
     const loadNext = async () => {
         const prevCount = Object.keys(grouped).length;
@@ -53,6 +74,10 @@ const Schedule = observer(() => {
         : isSunday;
 
     useEffect(() => {
+        loadInitial();
+    }, []);
+
+    useEffect(() => {
         if(!loading && pendingScroll !== null) {
             requestAnimationFrame(() => {
                 listRef.current?.children[pendingScroll]?.scrollIntoView({
@@ -66,31 +91,49 @@ const Schedule = observer(() => {
 
     return (
         <>
-            <div className="schedule-list" ref={listRef}>
-                {Object.entries(grouped).map(([date, items]) =>
-                    <ScheduleCard
-                        key={date}
-                        data={items}
-                        todayFinished={todayFinished}
-                    />
-                )}
-            </div>
-            {error
-                ? <div className="error-load">
-                    {error}
+            {initialLoading
+                ? <div className="loader-screen">
+                    <Loader />
                 </div>
-                : loading
-                    ? <div className="loading-btn"></div>
-                    :
-                    <div style={{ width: '100%', display: 'flex' }}>
-                        <button
-                            className="button"
-                            onClick={loadNext}
-                            disabled={loading}
-                        >
-                            Следующая неделя
-                        </button>
+                : <>
+                    <div className="schedule-list" ref={listRef}>
+                        {Object.entries(grouped).map(([date, items]) =>
+                            <ScheduleCard
+                                key={date}
+                                data={items}
+                                todayFinished={todayFinished}
+                            />
+                        )}
                     </div>
+                    {error
+                        ? <div className="error-load">
+                            {error}
+                            {schedules.schedules.length === 0
+                                ? <div style={{ width: '100%', display: 'flex' }}>
+                                    <button
+                                        className="button"
+                                        onClick={loadInitial}
+                                    >
+                                        Повторить
+                                    </button>
+                                </div>
+                                : null
+                            }
+                        </div>
+                        : loading
+                            ? <div className="loading-btn"></div>
+                            :
+                            <div style={{ width: '100%', display: 'flex' }}>
+                                <button
+                                    className="button"
+                                    onClick={loadNext}
+                                    disabled={loading}
+                                >
+                                    Следующая неделя
+                                </button>
+                            </div>
+                    }
+                </>
             }
         </>
     )
