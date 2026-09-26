@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useAppContext } from "../../context";
 import settingIcon from "../../assets/icons/setting.png";
 import closeIcon from "../../assets/icons/close_111152.svg";
+import Overlay from "../UI/overlay/Overlay";
 
 const Sidebar = () => {
 
@@ -34,11 +35,7 @@ const Sidebar = () => {
             )}
             {showSidebar && (
                 <>
-                    <div
-                        className="overlay"
-                        onClick={closeSidebar}
-                        onTouchMove={closeSidebar}
-                    ></div>
+                    <Overlay />
                     <div
                         className={`sidebar ${closing ? 'sidebar-closing' : 'show-sidebar'}`}
                         onAnimationEnd={() => {
