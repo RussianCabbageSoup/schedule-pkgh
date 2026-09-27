@@ -35,7 +35,10 @@ const Sidebar = () => {
             )}
             {showSidebar && (
                 <>
-                    <Overlay />
+                    <div className="overlay"
+                        onClick={ closeSidebar }
+                        onTouchMove={ closeSidebar }
+                    ></div>
                     <div
                         className={`sidebar ${closing ? 'sidebar-closing' : 'show-sidebar'}`}
                         onAnimationEnd={() => {
