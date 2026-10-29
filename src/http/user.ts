@@ -37,7 +37,7 @@ export const signUp = async (username: string, password: string): Promise<UserDa
 
 export const checkAuth = async (): Promise<UserData> => {
     try {
-        const { data } = await $authHost.get('/api/user/me/auth');
+        const { data } = await $authHost.get('/api/user/me/auth', { timeout: 4000 });
         return data;
     } catch (error) {
         throw new Error(getErrorMessage(error));
