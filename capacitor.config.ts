@@ -5,6 +5,9 @@ const config: CapacitorConfig = {
   appName: 'Schedule',
   webDir: 'dist',
   backgroundColor: '#000000',
+  server: {
+    androidScheme: 'https'
+  },
   plugins: {
     SystemBars: {
       style: 'DARK'
