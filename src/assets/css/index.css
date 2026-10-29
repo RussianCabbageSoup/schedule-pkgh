@@ -108,7 +108,8 @@ body {
 }
 
 .button {
-    margin: 20px auto;
+    margin: 0 auto;
+    margin-bottom: 20px;
     width: 100%;
     max-width: 320px;
     text-align: center;
