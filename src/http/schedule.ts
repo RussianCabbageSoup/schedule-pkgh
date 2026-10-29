@@ -65,10 +65,12 @@ const fetchSchedule = async ({ now = new Date(), step = 0, useProxy = true }: fe
         }
 
         const toSingleLine = (value: string) => value.replace(/\s+/g, ' ').trim();
+        const origin = typeof window !== 'undefined' ? window.location.origin : 'не определён';
         const details = [
             `Причина: ${reason}`,
             `Источник: ${source}`,
             `Адрес: ${requestUrl || 'не определён'}`,
+            `Origin: ${origin}`,
         ].map(toSingleLine);
 
         throw new Error(
