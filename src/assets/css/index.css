@@ -108,8 +108,7 @@ body {
 }
 
 .button {
-    margin: 0 auto;
-    margin-bottom: 20px;
+    margin: 10px auto;
     width: 100%;
     max-width: 320px;
     text-align: center;
@@ -126,6 +125,7 @@ body {
     text-align: center;
     margin-bottom: 13px;
     color: red;
+    white-space: pre-line;
 }
 
 .loader-screen {

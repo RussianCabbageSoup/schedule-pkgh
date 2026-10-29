@@ -41,11 +41,7 @@ const fetchSchedule = async ({ now = new Date(), step = 0, useProxy = true }: fe
 
         return data.data;
     } catch (error) {
-        const details = [
-            `источник: ${source}`,
-            `дата: ${day || 'не определена'}`,
-            `адрес: ${requestUrl || 'не определён'}`,
-        ];
+        let reason = '';
 
         if (axios.isAxiosError(error)) {
             if (error.response) {
@@ -54,30 +50,31 @@ const fetchSchedule = async ({ now = new Date(), step = 0, useProxy = true }: fe
                     ? (data.message ?? data.error)
                     : undefined;
 
-                details.push(`HTTP ${status}${statusText ? ` ${statusText}` : ''}`);
+                reason = `сервер ответил HTTP ${status}${statusText ? ` ${statusText}` : ''}`;
                 if (typeof serverMessage === 'string' && serverMessage) {
-                    details.push(`ответ сервера: ${serverMessage}`);
+                    reason += `, ответ сервера: ${serverMessage}`;
                 }
             } else if (error.code === 'ECONNABORTED') {
                 const timeout = error.config?.timeout;
-                throw new Error(
-                    `Превышено время ожидания ответа${timeout ? ` (${timeout} мс)` : ''}. `
-                    + `Проверьте соединение и повторите попытку (${details.join(', ')})`,
-                    { cause: error },
-                );
+                reason = `превышено время ожидания ответа${timeout ? ` (${timeout} мс)` : ''}`;
             } else {
-                details.push(
-                    `нет связи с сервером или запрос заблокирован `
-                    + `(код: ${error.code ?? 'неизвестен'})`,
-                );
+                reason = `нет связи с сервером или запрос заблокирован (код: ${error.code ?? 'неизвестен'})`;
             }
         } else {
-            details.push(
-                `непредвиденная ошибка: ${error instanceof Error ? `${error.name}: ${error.message}` : String(error)}`,
-            );
+            reason = `непредвиденная ошибка: ${error instanceof Error ? `${error.name}: ${error.message}` : String(error)}`;
         }
 
-        throw new Error(`Ошибка загрузки расписания (${details.join(', ')})`, { cause: error });
+        const toSingleLine = (value: string) => value.replace(/\s+/g, ' ').trim();
+        const details = [
+            `Причина: ${reason}`,
+            `Источник: ${source}`,
+            `Адрес: ${requestUrl || 'не определён'}`,
+        ].map(toSingleLine);
+
+        throw new Error(
+            `Ошибка загрузки расписания\n${details.join('\n')}`,
+            { cause: error },
+        );
     }
 }
 
