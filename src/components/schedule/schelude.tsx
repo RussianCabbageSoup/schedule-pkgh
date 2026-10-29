@@ -32,7 +32,7 @@ const Schedule = observer(() => {
         setInitialLoading(true);
         setError(null);
         try {
-            const data = await fetchSchedule(schedules.now);
+            const data = await fetchSchedule({ now: schedules.now, useProxy: schedules.useProxy });
 
             if (!data.rasp) {
                 setError('Не удалось загрузить расписание');
@@ -52,7 +52,7 @@ const Schedule = observer(() => {
         setPendingScroll(prevCount);
         try {
             setLoading(true);
-            const data = await fetchSchedule(schedules.now, schedules.week);
+            const data = await fetchSchedule({ now: schedules.now, step: schedules.week, useProxy: schedules.useProxy });
 
             if (!data.rasp || data.rasp.length === 0) {
                 setError('Нет данных на следующую неделю');
@@ -75,7 +75,7 @@ const Schedule = observer(() => {
 
     useEffect(() => {
         loadInitial();
-    }, []);
+    }, [schedules.useProxy]);
 
     useEffect(() => {
         if(!loading && pendingScroll !== null) {
@@ -108,17 +108,23 @@ const Schedule = observer(() => {
                     {error
                         ? <div className="error-load">
                             {error}
-                            {schedules.schedules.length === 0
-                                ? <div style={{ width: '100%', display: 'flex' }}>
-                                    <button
+                            <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                {schedules.schedules.length === 0
+                                    ? <button
                                         className="button"
                                         onClick={loadInitial}
                                     >
                                         Повторить
                                     </button>
-                                </div>
-                                : null
-                            }
+                                    : null
+                                }
+                                <button
+                                    className="button"
+                                    onClick={() => schedules.setUseProxy(!schedules.useProxy)}
+                                >
+                                    {schedules.useProxy ? 'Выключить прокси' : 'Включить прокси'}
+                                </button>
+                            </div>
                         </div>
                         : loading
                             ? <div className="loading-btn"></div>
@@ -139,4 +145,4 @@ const Schedule = observer(() => {
     )
 });
 
-export default Schedule
+export default Schedule;

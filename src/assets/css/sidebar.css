@@ -64,11 +64,18 @@
     gap: 0.7rem;
 }
 
-.setting__row {
+.setting__row-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 12px;
+    margin-bottom: 8px;
+}
+
+.setting__note {
+    width: 70%;
+    font-size: 0.8rem;
+    opacity: 0.6;
 }
 
 .setting__row-btn {

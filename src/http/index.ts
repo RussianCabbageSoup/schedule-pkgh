@@ -1,15 +1,17 @@
 import axios, { type AxiosError, type AxiosResponse, type InternalAxiosRequestConfig } from "axios";
 
-const apiURL = import.meta.env.VITE_API_URL || '';  // прокси (только для Vercel)
+const apiURL = import.meta.env.VITE_CLIENT_URL || '';  // прокси (только для Vercel)
 
 const $host = axios.create({
     baseURL: apiURL,
-    withCredentials: true
+    withCredentials: true,
+    timeout: 10000
 });
 
 const $authHost = axios.create({
     baseURL: apiURL,
-    withCredentials: true
+    withCredentials: true,
+    timeout: 10000
 });
 
 type RetriableConfig = InternalAxiosRequestConfig & { _retry?: boolean };

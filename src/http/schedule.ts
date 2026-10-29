@@ -18,14 +18,32 @@ export interface ApiResponse {
     rasp: ScheduleItem[];
 }
 
-const fetchSchedule = async (now: Date = new Date(), step: number = 0): Promise<ApiResponse> => {
+interface fetchScheduleArg {
+    now: Date,
+    step?: number,
+    useProxy: boolean
+}
+
+const fetchSchedule = async ({ now = new Date(), step = 0, useProxy = true }: fetchScheduleArg): Promise<ApiResponse> => {
     try {
         const day = getMoscowTime(now, step);
-        const { data } = await axios.get(import.meta.env.VITE_PKGH_URL + `${day}`);
-        return data.data;
+        if (useProxy) {
+            const { data } = await axios.get(`${import.meta.env.VITE_CLIENT_URL}api/schedules`, {
+                params: { day },
+            });
+            return data.data;
+        } else {
+            const { data } = await axios.get(import.meta.env.VITE_PKGH_URL + `${day}`, {
+                timeout: 10000
+            });
+            return data.data;
+        }
     } catch (error) {
-        throw new Error(`Faited to fetch schedule: ${ error instanceof Error ? error.message : '' }`);
+        if (axios.isAxiosError(error) && error.code === 'ECONNABORTED') {
+            throw new Error('Превышено время ожидания (10 сек). Попробуйте ещё раз или смените прокси');
+        }
+        throw new Error(`Ошибка загрузки расписания: ${error instanceof Error ? error.message : ''}`);
     }
 }
 
-export { fetchSchedule };
+export { fetchSchedule };   

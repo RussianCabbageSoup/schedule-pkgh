@@ -10,6 +10,7 @@ export default class ScheduleStore {
     _showTeacher = getItem('showTeacher', true);
     _showSubject = getItem('showSubject', false);
     _showAnimation = getItem('showAnimation', true);
+    _useProxy = getItem('useProxy', true);
 
     constructor() {
         makeAutoObservable(this);
@@ -42,6 +43,11 @@ export default class ScheduleStore {
         localStorage.setItem('showAnimation', String(bool));
     }
 
+    setUseProxy(bool: boolean) {
+        this._useProxy = bool;
+        localStorage.setItem('useProxy', String(bool));
+    }
+
     get schedules(): ScheduleItem[] {
         return this._schedules;
     }
@@ -64,5 +70,9 @@ export default class ScheduleStore {
 
     get showAnimation(): boolean {
         return this._showAnimation;
+    }
+
+    get useProxy(): boolean {
+        return this._useProxy;
     }
 }
